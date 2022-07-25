@@ -19,5 +19,7 @@ Guadalupe Samaría: tengo 28 años y vivo en Capital Federal. Trabajo en una emp
 
 Ezequiel Grynberg: tengo 30 años y vivo en Capital Federal. Actualmente trabajo freelance. Estudié derecho y estoy buscando poder realizar un cambio de carrera e introducirme en el mundo de IT. Disfruto viajar, tocar el piano y la guitarra, y entrenar.
 
+Ayelen Gaona: tengo 20 años y vivo en la localidad de Moreno. Disfruto aprender y adquirir nuevos conocimientos, por eso mi interés hacia este curso. Me gusta leer y ver películas.
+
 
 
