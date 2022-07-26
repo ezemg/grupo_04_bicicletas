@@ -21,5 +21,13 @@ Ezequiel Grynberg: tengo 30 años y vivo en Capital Federal. Actualmente trabajo
 
 Ayelen Gaona: tengo 20 años y vivo en la localidad de Moreno. Disfruto aprender y adquirir nuevos conocimientos, por eso mi interés hacia este curso. Me gusta leer y ver películas.
 
+- Sitios web tomados como referencia:
+
+https://www.foreverbikesarg.com.ar/
+https://www.fusionbikes.com.ar/
+https://www.bicicletasbelgrano.com.ar/
+https://pelotonbikes.com.ar/
+https://11afondo.com/
+
 
 
