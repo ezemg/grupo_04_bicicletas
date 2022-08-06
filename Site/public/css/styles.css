@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.top-header-mobile { 
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 40px ;
+    line-height: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.bottom-header {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5px;
+    padding-left: 5px ;
+    align-items: center;
+    height: 50px;
+    position: relative;
+}
+
+.menu-flex-mobile {
+    width: 20%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-mobile {
+    width: 19px;
+    height: 19px;
+}
+
+.logoflex {
+    width: 60%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.logo a img {
+    height: 28px;
+}
+
+
+.user-flex-mobile {
+    width: 10%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.user-mobile {
+    width: 19px;
+    height: 19px;
+}
+
+.cart-flex {
+    width: 10%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.cart {
+    width: 19px;
+    height: 19px;
+}
+
+.menu-desktop-flex {
+    display: none;
+}
+
+.menu-desktop-flex nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.login-flex-desktop {
+    display: none;
+}
+
+.registro-flex-desktop{
+    display: none;
+}
+
+@media (min-width:468px){
+
+    .menu-flex-mobile {
+        display: none;
+    }
+
+    .menu-desktop-flex {
+        display: flex;
+        order: 1;
+        width: 50%;
+        justify-content: space-between;
+        text-align: center;
+
+    }
+
+    .menu-desktop {
+        display: block;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .menu-desktop ul li {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .logoflex {
+        width: auto;
+        order: -1;
+        width: 30%;  
+        justify-content: flex-start;
+    }
+
+    .logo a img {
+        height: 40px;
+    }
+
+
+    .user-flex-mobile {
+        display: none;
+    }
+
+    .cart-flex {
+        order: 2;
+    }
+
+    .login-flex-desktop {
+        display: flex;
+        order: 3;
+        width: 10%;
+    }
+
+    .registro-flex-desktop {
+        display: flex;
+        order: 4;
+        width: 10%;
+    }
+}
