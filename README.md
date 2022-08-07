@@ -21,7 +21,7 @@ Ezequiel Grynberg: tengo 30 años y vivo en Capital Federal. Actualmente trabajo
 
 Ayelen Gaona: tengo 20 años y vivo en la localidad de Moreno. Disfruto aprender y adquirir nuevos conocimientos, por eso mi interés hacia este curso. Me gusta leer y ver películas y cocinar.
 
-Fernando Nogues: tenogo 27 años y vivo en nuñez, Buenos Aires. Trabajo en Brangus Argentina. Estudie Ingenieria Informatica. Me gusta cocinar, viajar y salir a correr. Quiero especializarme en desarrollo web.
+Fernando Nogues: tengo 27 años y vivo en nuñez, Buenos Aires. Trabajo en Brangus Argentina. Estudie Ingenieria Informatica. Me gusta cocinar, viajar y salir a correr. Quiero especializarme en desarrollo web.
 - Sitios web tomados como referencia:
 
 https://www.foreverbikesarg.com.ar/
