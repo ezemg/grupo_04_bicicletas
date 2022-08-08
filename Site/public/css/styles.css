@@ -92,6 +92,16 @@
     display: none;
 }
 
+footer {
+    background-color: grey;
+    color: white ;
+    border-top: solid 1px lightseagreen; 
+    padding: 12px;
+    text-align: center;
+    box-sizing: border-box
+    
+    }
+
 @media (min-width:468px){
 
     .menu-flex-mobile {
