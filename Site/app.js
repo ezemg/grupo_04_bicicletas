@@ -14,3 +14,20 @@ app.listen(3025, ()=>{
 app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/views/home.html');
 });
+
+app.get('/registro', function(req,res){
+    res.sendFile(path.resolve(__dirname, '/views/registro.html'))
+})
+
+app.get('/login', function(req,res){
+    res.sendFile(path.resolve(__dirname, '/views/login.html'))
+})
+
+app.post('/registro', function(req,res){
+    res.sendFile(path.resolve(__dirname, '/views/home.html'))
+})
+
+app.post('/login', function(req,res){
+    res.sendFile(path.resolve(__dirname, '/views/home.html'))
+})
+
