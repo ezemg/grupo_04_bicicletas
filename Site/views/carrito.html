@@ -13,23 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
     <link  href="/css/normalize.css" rel="stylesheet">
     <link  href="/css/styles.css" rel="stylesheet">
+    <link  href="/css/carrito.css" rel="stylesheet">
 
     
 </head>
 <body>
     <header>
-        <style>
-            .contenedor {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border: solid 2px black;
-                
-            }
-            div table {
-                border: solid 2px black;
-            }
-        </style>
+        
         <section class="top-header">
             <div class="mensaje-promo">
                 <p>mensaje cambiante en pantalla promo</p>
@@ -116,61 +106,83 @@
     </header>       
     <main>
        <div class="contenedor">
-        <section>
-            <table>
-                <thead>
+            <section>
+                <table >
+                    <thead>
+                        <tr>
+                            <th>Productos</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                                
+                    <tbody>
                     <tr>
-                        <th>Productos</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Subtotal</th>
+                        <td>Nombre Producto</td>
+                        <td>$Precio</td>
+                        <td><select>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select></td  >
+                        <td>Subtotal</td>
                     </tr>
-                </thead>
-                             
-                <tbody>
                     <tr>
-                    <td>Nombre Producto</td>
-                    <td>$Precio</td>
-                    <td><select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select></td  >
-                    <td>Subtotal</td>
-                </tr>
-                </tbody>
+                        <td>Nombre Producto</td>
+                        <td>$Precio</td>
+                        <td><select>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select></td  >
+                        <td>Subtotal</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre Producto</td>
+                        <td>$Precio</td>
+                        <td><select>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select></td  >
+                        <td>Subtotal</td>
+                    </tr>
+                    </tbody>
 
-            </table>
-        </section>
-        <section >
-            
-            <table>
-                <thead>
-                   <tr><td><h2>Totales</h2></td></tr> 
-                </thead>
+                </table>
+            </section>
+            <section >
                 
-                <tr>
-                    <td>Subtotal</td>
-                    <td>$Subtotal</td>
-                </tr>
-                <tr>
-                    <td>Envio</td>
-                    <td>$Envio</td>
-                </tr>
-                <tr>
-                    <td>Total</td>
-                    <td>$Total</td>
-                </tr>
-            </table>
-        </section>
-
-
-    </div>
-
-        
+                <table >
+                    <thead>
+                    <tr><td><h2>Totales</h2></td></tr> 
+                    </thead>
+                    
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>$Subtotal</td>
+                    </tr>
+                    <tr>
+                        <td>Envio</td>
+                        <td>$Envio</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>$Total</td>
+                    </tr>            
+                            
+                    
+                </table>
+                
+                    <button class="btnComprar">Finalizar Compra</button>
+                
+            
+            </section>
           
-        
+                    
 
+        </div> 
 
 
     </main>
