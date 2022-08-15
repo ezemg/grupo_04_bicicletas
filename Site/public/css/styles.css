@@ -251,14 +251,27 @@ html {
 
 /*form*/
 .titulo-formulario{ 
-    display:flex;
+    font-weight: bolder;
     color: black;
     font-weight: 110%;
     background-color: white;
     font-size: 30px;
     padding: 10px;
-    justify-content: left
+  margin: auto;
+  text-align: center;
+
 }
+.titulo-formulario-registro{ 
+    display: flex;
+    font-weight: bolder;
+    color: black;
+    font-weight: 110%;
+    background-color: white;
+    font-size: 30px;
+    padding: 10px;
+  margin: auto;
+  margin: left 10px;
+ }
 
 .create-form{
     padding: 20px 15px;
@@ -266,14 +279,33 @@ html {
 
 .control-formulario{
     margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+
+}
+.control-formulario-registro{
+    margin-bottom: 15px;
+
+  font-weight: bold;
+
 }
 
 .control-formulario label {
-margin-bottom: 5px;
-font-style: normal;
+margin: 10px;
+font-style:normal ;
+font-size: medium;
 display: block;
 
 }
+
+.control-formulario-registro label {
+    margin: 10px;
+    font-style: normal;
+    display: block;
+    font-size: medium;
+    
+    }
+
 .control{
 width: 100%;
 padding:8px}
@@ -283,10 +315,9 @@ padding:8px}
     background-color: black;
     border: none;
     font-size: 35px;
-    font-style: bolder;
     color: lightseagreen;
-    padding:5px 10px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 10px;
     justify-content:center;
     margin: auto
 }
@@ -299,3 +330,18 @@ padding:8px}
     justify-content:center
 
 }
+
+.control-formulario input{
+    display: flex;
+    width: 300px;
+    margin: 5px;
+    border-radius: 5%;
+   margin-left: auto;
+   margin-right: auto;
+}
+.control-formulario-registro input{
+    display: flex;
+    width: 25%;
+    margin: 10px;
+    border-radius: 5%;
+     }
