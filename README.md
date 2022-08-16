@@ -30,5 +30,7 @@ https://www.bicicletasbelgrano.com.ar/
 https://pelotonbikes.com.ar/
 https://11afondo.com/
 
+https://trello.com/b/2tB1IArL/pizarra-de-tareas
+
 
 
