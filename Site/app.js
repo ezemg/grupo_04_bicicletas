@@ -24,9 +24,14 @@ app.get('/registro', function(req,res){
     res.sendFile(path.resolve(__dirname + '/views/registro.html'));
 });
 
+app.get('/producto', function(req,res){
+    res.sendFile(path.resolve(__dirname + '/views/producto.html'));
+});
 
 app.get('/login', function(req,res){
     res.sendFile(path.resolve(__dirname + '/views/login.html'));});
+
+
 
 app.post('/#', function(req,res){
     res.sendFile(path.resolve(__dirname, '/views/home.html'))
