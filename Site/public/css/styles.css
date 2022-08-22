@@ -5,6 +5,7 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+/* header */
 
 .top-header { 
   background-color: black;
@@ -130,44 +131,7 @@ li {
 }
 
 
-
-.cesta-beneficios-actualizar {}
-.cesta-beneficios-actualizar span:nth-of-type(1) {
-  font-size: 36px;
-}
-.cesta-beneficios-actualizar span:nth-of-type(2) {
-  font-size: 16px;
-  float: right;
-  padding-top: 25px;
-  font-weight: bold;
-}
-
-.cesta-beneficios-actualizar span:nth-of-type(2) em {
-  color: green;
-  
-}
-
-table th {
-  text-align: center;
-   border-bottom:1pt solid black;
-}
-
-tr.totales td {
-  font-weight: bold;
-  text-align: right;
-}
-
-tr td:nth-of-type(4){
-  text-align: right;
-}
-
-tr td:nth-of-type(2), tr td:nth-of-type(3){
-  text-align: center;
-}
-
-
 /* body */
-
 
 .contenedor01 {
   max-width: 100%;
@@ -361,7 +325,6 @@ a {text-decoration: none;
 
 }
 
-
 .contenedor-categoria-01 {
   width: 90%;
   height: 100vw;
@@ -407,7 +370,6 @@ a {text-decoration: none;
 .mensaje-categoria {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
   width: 100%;
   justify-content: center;
@@ -447,16 +409,24 @@ a {text-decoration: none;
 
 footer {
   border-top: 1px black solid;
+  color: white;
+  background-color: black;
 }
+
+footer i {
+  color: white;
+}
+
 
 .footer-mobile {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 20px;
   padding-left: 25px;
   padding-right: 25px;
+  margin-top: 40px;
+  padding-bottom: 20px;
 }
 
 .socialmedia {
@@ -464,42 +434,46 @@ footer {
   width: 100%;
   justify-content:space-between;
   font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
-.contacto-footer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 3px;
-  padding-top: 20px;
-
-}
-
+.contacto-footer,
 .links-footer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   margin-top: 20px;
-  gap: 3px;
 }
 
-.links-footer ul li {
-  line-height: 20px;
+.links-footer h3,
+.contacto-footer h3 {
+  padding-bottom: 5px;
+}
+
+.links-footer ul li,
+.contacto-footer ul li {
+  line-height: 24px;
+}
+
+.links-footer ul li a,
+.contacto-footer ul li a {
+  color: white
 }
 
 .logo-footer {
   object-fit: contain;
-  width: 50%;
+  width: 60%;
   align-self: center;
   padding-top: 20px;
 }
 
-
-
-
-
+.logo-footer-social {
+  display: none;
+}
 
 @media (min-width:468px){
+
+  /* header */
 
     .mensaje-promo {
         width: 50%;
@@ -548,15 +522,11 @@ footer {
        
     }
 
-   
-
     .menu-desktop ul li a {
         display: inline-block;
         text-decoration: none;
         color: black;
     }
-
-
 
     .logoflex {
         order: -1;
@@ -582,7 +552,6 @@ footer {
         width: 4%;
     }
 
-
     .user-flex-desktop {
         display: flex;
         order: 3 ;
@@ -600,13 +569,12 @@ footer {
         justify-content: center;
     }
     
-
     .user-flex-desktop button {
       border: none;
       background: none;
     }
- /* body */
 
+ /* body */
 
     .ver-bicicletas-productos {
       display: flex;
@@ -673,8 +641,6 @@ footer {
     font-size: 4rem;
     display: inline;
     margin-right: 3px;
-    
-  
   }
   
   .mensaje-medio {
@@ -703,7 +669,7 @@ footer {
   
   .mensaje-categoria-01,
   .mensaje-categoria-03 {
-    font-size: 3.7rem;
+    font-size: 3rem;
   }
   
   .mensaje-categoria-02 {
@@ -717,6 +683,7 @@ footer {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    margin-top: 20px;
   }
 
   .socialmedia {
@@ -738,7 +705,21 @@ footer {
 
   .logo-footer {
     order: 2;
-    width: 30%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
   }
 
+  .logo-footer-social {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 40px;
+  };
+
+  .logo-footer-logo{
+    width: 100%;
+  }
 }

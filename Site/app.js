@@ -15,31 +15,21 @@ app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/views/home.html');
 });
 
-app.get('/carrito', function(req,res){
-    res.sendFile(path.resolve(__dirname + '/views/carrito.html'));
+app.get('/carrito', (req,res)=>{
+    res.sendFile(__dirname + '/views/carrito.html');
 });
 
 
-app.get('/registro', function(req,res){
-    res.sendFile(path.resolve(__dirname + '/views/registro.html'));
+app.get('/detalle', (req,res)=>{
+    res.sendFile(__dirname + '/views/detalle.html');
 });
 
-app.get('/producto', function(req,res){
-    res.sendFile(path.resolve(__dirname + '/views/producto.html'));
+app.get('/registro', (req,res)=>{
+    res.sendFile(__dirname + '/views/registro.html');
 });
 
-app.get('/login', function(req,res){
-    res.sendFile(path.resolve(__dirname + '/views/login.html'));});
+app.get('/login', (req,res)=>{
+    res.sendFile(__dirname + '/views/login.html');
+});
 
-
-
-app.post('/#', function(req,res){
-    res.sendFile(path.resolve(__dirname, '/views/home.html'))
-})
-
-
-
-app.post('/login', function(req,res){
-    res.sendFile(path.resolve(__dirname, '/views/home.html'))
-})
 

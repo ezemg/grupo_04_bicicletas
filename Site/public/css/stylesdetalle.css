@@ -134,41 +134,6 @@
     list-style:none;
   }
   
-  
-  
-  .cesta-beneficios-actualizar {}
-  .cesta-beneficios-actualizar span:nth-of-type(1) {
-    font-size: 36px;
-  }
-  .cesta-beneficios-actualizar span:nth-of-type(2) {
-    font-size: 16px;
-    float: right;
-    padding-top: 25px;
-    font-weight: bold;
-  }
-  
-  .cesta-beneficios-actualizar span:nth-of-type(2) em {
-    color: green;
-    
-  }
-  
-  table th {
-    text-align: center;
-     border-bottom:1pt solid black;
-  }
-  
-  tr.totales td {
-    font-weight: bold;
-    text-align: right;
-  }
-  
-  tr td:nth-of-type(4){
-    text-align: right;
-  }
-  
-  tr td:nth-of-type(2), tr td:nth-of-type(3){
-    text-align: center;
-  }
 
   /* main */
 
@@ -181,10 +146,15 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .descripcion-producto {
-    display: flex
+    display: flex;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
   }
 
   .imagen-producto-principal{
@@ -232,32 +202,33 @@
 
   .precio-descripcion-producto {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 40px;
   }
 
   .medio-pago {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     margin-bottom: 30px;
     justify-content: space-between;
-    align-items: stretch;
+   
   }
 
   .boton-medio-pago {
     display: flex;
-    border: solid 0.5px rgb(65, 63, 63);
-    border-radius: 3px;
-    width: 40%;
+    width: 100%;
     margin-bottom: 20px;
     padding-left: 8px;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 1.5rem;
     font-weight: bold;
-    background-color: lightgray;
-    opacity: 90%;
+    justify-content: center;
+    gap: 80px;
+  }
+
+  .boton-medio-pago label {
+    margin-left: 5px;
   }
 
   .boton-comprar {
@@ -281,11 +252,13 @@
   .titulo-texto-descripcion-producto {
     font-size: 1.3rem;
     margin-bottom: 5px;
+    text-align: center;
   }
 
   .parrafo-texto-descripcion-producto {
     font-size: 1.2rem;
     margin-bottom: 5px;
+    text-align: justify;
   }
 
 

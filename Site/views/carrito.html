@@ -109,15 +109,13 @@
 
         </div>
 
-        <div class="carrito-principal">
-
-
-            <section class="tabla-productos">
+        <div class="container">
+    
+            <div class="sub-container-1">
                 
-                <form action="#" method="post" class="formulario-tabla-productos">
-                    <table class="tabla-tabla-productos">
+                <table class="tabla-tabla-productos">
                         <thead>
-                            <tr>
+                            <tr class="encabezado-tabla">
                                 <th class="product-remove"></th>
                                 <th class="product-thumbnail"></th>
                                 <th class="product-name">PRODUCTO</th>
@@ -127,100 +125,92 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="item">
-                                <td class="product-remove">
-                                    <a href="#" class="remove"><i class="fa-solid fa-xmark"></i></a>
-                                </td>
-                                <td class="product-thumbnail">
-                                    <img src="images\specializedtarmacsl6.jpeg" alt="">
-                                </td>
-                                <td class="product-name">Specialized Tarmac SL6</td>
-                                <td class="product-price">$239.000.-</td>
-                                <td class="product-quantity">
-                                    <input type="number" placeholder="1">
-                                </td>
-                                <td class="product-subtotal">$239.000.-</td>
-                            </tr>
-                            <tr class="item">
-                                <td class="product-remove">
-                                    <a href="#" class="remove"><i class="fa-solid fa-xmark"></i></a>
-                                </td>
-                                <td class="product-thumbnail">
-                                    <img src="images\specializedtarmacsl6.jpeg" alt="">
-                                </td>
-                                <td class="product-name">Specialized Tarmac SL6</td>
-                                <td class="product-price">$239.000.-</td>
-                                <td class="product-quantity">
-                                    <input type="number" placeholder="1">
-                                </td>
-                                <td class="product-subtotal">$239.000.-</td>
-                            </tr>
-                            <tr class="item">
-                                <td class="product-remove">
-                                    <a href="#" class="remove"><i class="fa-solid fa-xmark"></i></a>
-                                </td>
-                                <td class="product-thumbnail">
-                                    <img src="images\specializedtarmacsl6.jpeg" alt="">
-                                </td>
-                                <td class="product-name">Specialized Tarmac SL6</td>
-                                <td class="product-price">$239.000.-</td>
-                                <td class="product-quantity">
-                                    <input type="number" placeholder="1">
-                                </td>
-                                <td class="product-subtotal">$239.000.-</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
-                
-            
-
-               
-            </section>
-
-            <section class="tabla-totales">
-                <div class="titulo-tabla-totales">
-                    <h2>TOTALES</h2>
-                </div>
-                <div class="display-tabla-totales">
-                    
-                    <div class="subtotal-tabla-totales">
-                        <div class="subtotal-titulo-tabla-totales">
-                            <p>SUBTOTAL</p>
-                        </div>
-                        <div class="subtotal-especifico-tabla-totales">
-                            <p>$239.999.-</p>
-                        </div>
-                    </div>
-
-                    <div class="envio-tabla-totales">
-                        <p class="envio-titulo-tabla-totales">ENVÍO</p>
-                        <p class="envio-especifico-tabla-totales">Retiro en el local</p>
+                                <tr class="item">
+                                    <td class="product-remove">
+                                        <button><i class="fa-solid fa-xmark"></i></button>
+                                    </td>
+                                    <td class="product-thumbnail">
+                                        <img src="images\specializedtarmacsl6.jpeg" alt="">
+                                    </td>
+                                    <td class="product-name"><a href="#">Specialized Tarmac SL6</a> </td>
+                                    <td class="product-price"><span>$239.000.-</span></td>
+                                    <td class="product-quantity">
+                                        <input type="number" placeholder="1">
+                                    </td>
+                                    <td class="product-subtotal"><span>$239.000.-</span></td>
+                                </tr>
+                                <tr class="item">
+                                    <td class="product-remove">
+                                        <button><i class="fa-solid fa-xmark"></i></button>
+                                    </td>
+                                    <td class="product-thumbnail">
+                                        <img src="images\specializedtarmacsl6.jpeg" alt="">
+                                    </td>
+                                    <td class="product-name"><a href="#">Specialized Tarmac SL6</a> </td>
+                                    <td class="product-price"><span>$239.000.-</span></td>
+                                    <td class="product-quantity">
+                                        <input type="number" placeholder="1">
+                                    </td>
+                                    <td class="product-subtotal"><span>$239.000.-</span></td>
+                                </tr>
+                                <tr class="item">
+                                    <td class="product-remove">
+                                        <button><i class="fa-solid fa-xmark"></i></button>
+                                    </td>
+                                    <td class="product-thumbnail">
+                                        <img src="images\specializedtarmacsl6.jpeg" alt="">
+                                    </td>
+                                    <td class="product-name"><a href="#">Specialized Tarmac SL6</a> </td>
+                                    <td class="product-price"><span>$239.000.-</span></td>
+                                    <td class="product-quantity">
+                                        <input type="number" placeholder="1">
+                                    </td>
+                                    <td class="product-subtotal"><span>$239.000.-</span></td>
+                                </tr>
                         
+                        </tbody>
+                </table>
+    
+            </div>
+    
+            <div class="sub-container-2">
+    
+                <section class="tabla-totales">
+                    <div class="titulo-tabla-totales">
+                        <h2>TOTALES</h2>
                     </div>
-
-                    <div class="total-tabla-totales">
-                        <div class="total-titulo-tabla-totales">
-                            <p>TOTAL</p>
+                    <div class="display-tabla-totales">
+                        
+                        <div class="subtotal-tabla-totales">
+                            <div class="subtotal-titulo-tabla-totales">
+                                <p>SUBTOTAL</p>
+                            </div>
+                            <div class="subtotal-especifico-tabla-totales">
+                                <p>$239.999.-</p>
+                            </div>
                         </div>
-                        <div class="total-especifico-tabla-totales">
-                            <p>$239.999.-</p>
+    
+                        <div class="envio-tabla-totales">
+                            <p class="envio-titulo-tabla-totales">ENVÍO</p>
+                            <p class="envio-especifico-tabla-totales">Retiro en el local</p>
+                            
                         </div>
-                    </div>
-
-                    <div class="finalizar-compra-tabla-totales">
-                        <button>FINALIZAR COMPRA</button>
-                    </div>
-                    
-                    
-
-                </div>
-                
-
-            </section>
-
+    
+                        <div class="total-tabla-totales">
+                            <div class="total-titulo-tabla-totales">
+                                <p>TOTAL</p>
+                            </div>
+                            <div class="total-especifico-tabla-totales">
+                                <p>$239.999.-</p>
+                            </div>
+                        </div>
+    
+                        <div class="finalizar-compra-tabla-totales">
+                            <button>FINALIZAR COMPRA</button>
+                        </div>
+            </div>
+            </div>
         </div>
-
         
     </main>
     <footer>
@@ -249,19 +239,14 @@
 
             </section>
 
+           
             <section class="contacto-footer">
-                <div class="titulo-contacto">
-                    <h3>Contacto</h3>
-                </div>
-                <div class="telefono-contacto">
-                    <p>+5491123456789</p>
-                </div>
-                <div class="email-contacto">
-                    <p>dhbicicletas@dhmail.com</p>
-                </div>
-                <div class="domicilio-contacto">
-                    <p>Av. Calle Falsa 123</p>
-                </div>
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="#"> +5491123456789</a></li>
+                    <li><a href="#"> dhbicicletas@dhmail.com</a></li>
+                    <li><a href="#"> Av. Calle Falsa 123</a></li>
+                </ul>
             </section>
 
             <section class="links-footer">
@@ -275,7 +260,30 @@
             </section>
 
             <div class="logo-footer">
-                    <a href="/"><img  src="images/logodhbikes.svg" ></a>
+                    <div class="logo-footer-logo">
+                        <a href="/"><img  src="images/logodhbikes-bw.svg" ></a>
+                    </div>
+
+                    <div class="logo-footer-social">
+                        <div class="telefono-footer">
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+        
+                        <div class="instagram-footer">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+        
+                        <div class="facebook-footer">
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+        
+                        <div class="youtube-footer">
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                   
+                
+                
             </div>
                 
 
