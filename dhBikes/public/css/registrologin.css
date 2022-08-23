@@ -1,0 +1,79 @@
+/* registro */
+
+.formulario {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.titulo-formulario-registro{ 
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 20px 0 20px 20px;
+  width: 100%;
+  border-bottom: solid 1px black;
+}
+
+    
+.create-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+
+.control-formulario-registro{
+  margin-bottom: 15px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 5px;
+}
+
+.recordar-usuario {
+  display: flex;
+  font-size: 0.8rem;
+  align-items: center;
+}
+
+.recordar-usuario input {
+  font-size: 0.5rem;
+  width: 10%;
+}
+
+input {
+  width: 100%;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  
+}
+
+.boton-formulario{
+    background-color: black;
+    border: none;
+    font-size: 1.8rem;
+    color: #56E8F0;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    
+}
+.olvido-contrasenia{ 
+    text-decoration: underline;
+    color: rgb(240, 94, 94);
+}
+
+@media (min-width: 468px) {
+
+  .create-form{
+    width: 50%;
+    
+  }
+
+}
+

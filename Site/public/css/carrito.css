@@ -230,7 +230,7 @@ td img {
     }
     
     .product-name::before {
-        content: 'PRODUCTO ' ;
+        content: 'PRODUCTO' ;
         float: left;
         font-weight: bold;
     }
