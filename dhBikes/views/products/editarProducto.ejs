@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/28f161943c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet"href="/css/registrologin.css">
+</head>
+<body>
+    
+    <%- include('../partials/header.ejs')%> 
+<main>
+
+    <div class="titulo-formulario-registro"><p>Editar Producto</p></div>
+
+    <div class="formulario">
+        <form action="/editarProducto" method="POST" class="create-form">
+        
+            <div class="control-formulario-registro">
+                <label>Nombre del Producto</label>
+                <input type="text" name="nombreProducto" class="control">
+            </div>
+
+            <div class="control-formulario-registro">
+                <label>Descripcion</label>
+                <input type="text" name="descripcion" class="control">
+            </div>
+
+            <div class="control-formulario-registro">
+                <label>Precio</label>
+                <input type="number" name="precio" class="control">
+            </div>
+
+            <div class="control-formulario-registro">
+                <label>Cantidad</label>
+                <input type="number" name="cantidad" class="control">
+            </div>
+
+            <div class="control-formulario-registro">
+                <label>Color</label>
+                <input type="text" name="color" class="control">
+            </div>
+
+            <div class="control-formulario-registro">
+                <label>Descuento</label>
+                <input type="number" name="descuento" class="control">
+            </div>
+            <div class="control-formulario-registro">
+                <label>Suba la Imagen del Producto</label>
+                <input type="file" name="imagen" class="control">
+            </div>
+            <div class="control-formulario-registro">
+                <label>Categorias</label>
+                <input type="number" name="categorias" class="control">
+            </div>
+
+            <div class="control-formulario-registro">
+                <button type="submit" class="boton-formulario">
+                    <span>EDITAR PRODUCTO</span> 
+                </button>
+            </div>
+        </form>
+    </div>
+    
+</main>
+
+<%- include('../partials/footer.ejs')%> 
+
+
+</body>
+
+</html>
