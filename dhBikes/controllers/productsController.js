@@ -15,7 +15,14 @@ const productsController = {
 
     carrito: (req, res) => {
         return res.render('products/carrito')
-    }    
+    },
+    nuevoProducto: (req, res) => {
+        return res.render('products/nuevoProducto')
+    },
+    editarProducto: (req, res) => {
+        return res.render('products/editarProducto')
+    }
+
 }
 
 module.exports = productsController
