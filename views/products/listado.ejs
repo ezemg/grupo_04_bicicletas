@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <script src="https://kit.fontawesome.com/5e991a0f5e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
+    <link  href="/css/normalize.css" rel="stylesheet">
+    <link  href="/css/styles.css" rel="stylesheet">
+    
+</head>
+<body>
+    
+    <%- include('../partials/header.ejs')%> 
+
+    <main>
+
+        <section class="novedades">
+            
+            <h2>PRODUCTOS</h2>
+            <div class="products">
+
+                <% for(let producto of products) { %>
+            
+                <article class="product">
+                    <a href="/products/producto/<%= producto.id %> ">
+                        <div class="img-product">
+                            <img src="../images/productos/<%= producto.image %>" alt="imagen producto" class="product-img">
+                        </div>
+                        <div class="main-article">
+                            <h4 class="description"><%= producto.name %> </h4>
+                            <div class="box-price">
+                                <p class="price">$<%= producto.price %> .-</p>
+                            </div>
+                        </div>  
+                    </a>
+                </article>  
+
+                <% } %> 
+
+            </div>
+
+        </section>
+ 
+    </main>
+    
+    <%- include('../partials/footer.ejs')%> 
+</body>
+</html>
+
+  

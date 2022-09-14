@@ -22,19 +22,19 @@
                 
                 <div class="imagen-producto-principal">
                     
-                    <img src="../images/specializedtarmacsl6.jpeg" alt="">
+                    <img src="../../images/productos/<%= producto.image %>" alt="">
 
                 </div>
 
                 <div class="imagen-producto-secundaria">
                     <div class="contenedor-imagen-producto-secundaria">
-                        <img src="../images/specializedtarmacsl6.jpeg" alt="">
+                        <img src="../../images/productos/<%= producto.image %>"  alt="">
                     </div>
                     <div class="contenedor-imagen-producto-secundaria">
-                        <img src="../images/specializedtarmacsl6.jpeg" alt="">
+                        <img src="../../images/productos/<%= producto.image %>" alt="">
                     </div>
                     <div class="contenedor-imagen-producto-secundaria">
-                        <img src="../images/specializedtarmacsl6.jpeg" alt="">
+                        <img src="../../images/productos/<%= producto.image %>" alt="">
                     </div>
                 </div>
                 
@@ -44,15 +44,15 @@
             <section class="descripcion-producto">
 
                 <div class="ruta-descripcion-producto">
-                    <p>Inicio/Productos/Bicicletas/<strong>Specialized Tarmac SL6</strong></p>
+                    <p>Inicio/Productos/<%= producto.category %>/<strong><%=producto.name%></strong></p>
                 </div>
 
                 <div class="nombre-descripcion-producto">
-                    <h2>Specialized Tarmac SL6</h2>
+                    <h2><%= producto.name %></h2>
                 </div>
 
                 <div class="precio-descripcion-producto">
-                    <h3>$239.000.-</h3>
+                    <h3>$<%= producto.price %>.-</h3>
                 </div>
 
                 <form action="#" method="post" class="medio-pago">
@@ -75,14 +75,22 @@
                         <h2>Información del producto</h2>
                     </div>
                     <div class="parrafo-texto-descripcion-producto">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque rem cumque est esse iusto, eius quas. Ipsa, sapiente non vero iure consequatur porro laboriosam explicabo pariatur. Nisi laudantium quaerat beatae?
-                            <br>
-                            <br>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi est atque praesentium perferendis amet error. Odio, saepe vitae nam, ad molestiae sit, dignissimos accusamus et ex fugit impedit? Corrupti, placeat.
-                        </p>
-                    </div>
-                    
+                        <p><%= producto.description %></p>
+                    </div>  
                 </div>
+
+                <div class="editar-eliminar">
+
+                    <div class="boton-editar-producto">
+                        <a href="/products/edit/<%= producto.id %>" class="action-button edit">Editar</a>
+                    </div>
+                
+                    <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST" class="boton-eliminar-producto">
+                        <button type="submit" class="action-button delete">Eliminar</button>
+                    </form>  
+                </div>
+                
+               
 
                 
 

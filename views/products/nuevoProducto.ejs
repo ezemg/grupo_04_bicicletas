@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/28f161943c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet"href="/css/registrologin.css">
 </head>
@@ -20,44 +20,36 @@
     <div class="titulo-formulario-registro"><p>Nuevo Producto</p></div>
 
     <div class="formulario">
-        <form action="/nuevoProducto" method="POST" class="create-form">
+        <form action="nuevo-producto" method="POST" class="create-form" enctype="multipart/form-data">
         
             <div class="control-formulario-registro">
                 <label>Nombre del Producto</label>
-                <input type="text" name="nombreProducto" class="control">
+                <input type="text" name="name" class="control">
             </div>
 
             <div class="control-formulario-registro">
                 <label>Descripcion</label>
-                <input type="text" name="descripcion" class="control">
+                <input type="text" name="description" class="control">
             </div>
 
             <div class="control-formulario-registro">
                 <label>Precio</label>
-                <input type="number" name="precio" class="control">
+                <input type="number" name="price" class="control">
             </div>
 
-            <div class="control-formulario-registro">
-                <label>Cantidad</label>
-                <input type="number" name="cantidad" class="control">
-            </div>
-
-            <div class="control-formulario-registro">
-                <label>Color</label>
-                <input type="text" name="Color" class="control">
-            </div>
-
-            <div class="control-formulario-registro">
-                <label>Descuento</label>
-                <input type="number" name="descuento" class="control">
-            </div>
+            
             <div class="control-formulario-registro">
                 <label>Suba la Imagen del Producto</label>
-                <input type="file" name="imagen" class="control">
+                <input type="file" name="fotoProducto" class="control">
             </div>
+
             <div class="control-formulario-registro">
-                <label>Categorias</label>
-                <input type="number" name="categorias" class="control">
+                <label for="category">Categoría:</label>
+				<select name="category" id="category">
+					<option value="Bicicletas">Bicicletas</option>
+					<option value="Accesorios">Accesorios</option>
+					<option value="Indumentaria">Indumentaria</option>
+				</select>
             </div>
 
             <div class="control-formulario-registro">
