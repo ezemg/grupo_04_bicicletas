@@ -48,7 +48,10 @@ const userController = {
         if (userToLogin) {
             let isOkPassword = bcrypt.compareSync(req.body.contrasena, userToLogin.contrasena)
             if (isOkPassword){
-                return res.redirect('/products/carrito')
+                delete userToLogin.contrasena;
+                delete userToLogin.confirmarContrasena;
+                req.session.userLogged = userToLogin;
+                return res.redirect('/users/profile')
             }
             return res.render ('users/login',{
                 errors:{
@@ -68,7 +71,8 @@ const userController = {
     },
 
     login: (req, res) => {
-        return res.render('users/login')
+        console.log(req.session);
+        return res.render('users/login');
 
        
     },
@@ -76,7 +80,21 @@ const userController = {
     register: (req, res) => {
         return res.render('users/registro')   
         
-    }    
+    },
+    //Perfil de usuarrio
+    profile: (req, res) => {
+      
+        return res.render('users/profile',{
+            user:req.session.userLogged
+        });   
+        
+    },
+
+    logout: (req, res)=>{
+        req.session.destroy();
+        return res.redirect('/')
+    }
+
 }
 
 module.exports = userController

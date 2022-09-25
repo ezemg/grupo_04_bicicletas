@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+const guestMiddleware = require ('../middlewares/guestMiddleware');
+const authMiddleware = require ('../middlewares/authMiddleware');
 
 
 const path = require('path')
@@ -57,14 +58,14 @@ const validations = [
 ]
 
 //Formulario login
-router.get('/login', usuariosController.login);
+router.get('/login',guestMiddleware ,usuariosController.login);
 
 //Procesar Login 
 router.post('/login',usuariosController.loginProcess);
 
 //Formulario registro
 
-router.get('/register', usuariosController.register);
+router.get('/register',guestMiddleware ,usuariosController.register);
 
 //Procesar el Registro
 
@@ -72,7 +73,10 @@ router.post('/register',uploadFile.single('avatar'), validations ,usuariosContro
 
 //Perfil de Usuario
 
-//router.get('/profile/:userId', usuariosController.profile);
+router.get('/profile',authMiddleware ,usuariosController.profile);
+
+// Logout
+router.get('/logout/', usuariosController.logout)
 
 
 module.exports = router;

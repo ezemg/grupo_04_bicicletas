@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/28f161943c.js" crossorigin="anonymous"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link  href="/css/registrologin.css" rel="stylesheet">
+</head>
+<body>
+    
+    <%- include('../partials/header.ejs')%> 
+  
+<main>
+
+    <div class="container" style="margin-top: 40px;">
+        <div class="row">
+            <div>
+                <h2>Hola <%= user.nombre %></h2>
+                <img src="/images/users/<%= user.avatar %>">
+                <br>
+                <div class="alert alert-success"><%= user.email%></div>
+            </div>
+        </div>
+
+    </div>
+
+       
+    
+</main>
+
+<%- include('../partials/footer.ejs')%> 
+</body>
+</html>

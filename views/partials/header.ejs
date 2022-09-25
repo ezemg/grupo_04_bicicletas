@@ -63,6 +63,7 @@
                 </ul>
             </nav> 
         </div>
+        <% if (!locals.isLogged) {%>
 
         <div class="user-flex-desktop">
             
@@ -74,12 +75,12 @@
 
             <div class="registro-flex-desktop">
                 <div class="registro-desktop">
-                    <button><a href="/users/registro">registro</a></button>  
+                    <button><a href="/users/register">registro</a></button>  
                 </div>
             </div>
 
         </div>
-
+        <%}%>
         
     </section>
 </header>    
