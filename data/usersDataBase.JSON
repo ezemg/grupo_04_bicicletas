@@ -1,20 +1,12 @@
 [
-    {
-        "id": 1662402209441,
-        "firstName": "",
-        "lastName": "",
-        "email": "",
-        "password": "",
-        "category": "",
-        "image": ""
-    },
-    {
-        "id": 1662402209441,
-        "firstName": "",
-        "lastName": "",
-        "email": "",
-        "password": "",
-        "category": "",
-        "image": ""
-    }
+ {
+  "id": 1,
+  "nombre": "fernando",
+  "apellido": "nogues",
+  "usuario": "fernando",
+  "email": "fer_nogues_95@hotmail.com",
+  "contrasena": "$2a$10$U7LOkxNgpUJJHl49L1Xh5OI5a.ooJNM9o5Awbp14DZ37MY1qbbjxm",
+  "confirmarContrasena": "$2a$10$tZimph9R8nSxLt/QVudPEuiE2ETvhB/.g7OtUOvMmS.qYEQ.9Zn72",
+  "avatar": "1664075864468_img.jpg"
+ }
 ]

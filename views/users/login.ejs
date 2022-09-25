@@ -23,16 +23,21 @@
         <div class="titulo-formulario-registro"><p>INGRESAR</p></div>
         
         <div class="formulario">
-            <form action="/registro-usuario" method="POST" class="create-form">
+            <form action="/users/login" method="POST" class="create-form">
 
                 <div class="control-formulario-registro">
-                    <label>Nombre de Usuario o Correo Electrónico</label>
-                    <input type="text" name="nombre" class="control">
+                    <label>Correo Electrónico</label>
+                    <input type="text" name="email" class="control">
+                    <% if (locals.errors && errors.email){ %>
+                    <div class="text-danger">
+                        <%= errors.email.msg %>
+                    </div>
+                    <%}%>
                 </div>
     
                 <div class="control-formulario-registro">
                     <label>Contraseña</label>
-                    <input type="password" name="contraseña" class="control">
+                    <input type="password" name="contrasena" class="control">
                 </div>
     
                 <div class="control-formulario-registro">

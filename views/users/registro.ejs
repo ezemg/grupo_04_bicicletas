@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.gregistrooogleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/28f161943c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="/css/styles.css">
@@ -20,36 +20,101 @@
     <div class="titulo-formulario-registro"><p>CREAR CUENTA</p></div>
 
     <div class="formulario">
-        <form action="/registro-usuario" method="POST" class="create-form">
+        <form method="POST" action="/users/register"  class="create-form" enctype="multipart/form-data">
         
             <div class="control-formulario-registro">
                 <label>Nombre</label>
-                <input type="text" name="nombre" class="control">
+                <input type="text" 
+                name="nombre" 
+                class="control "
+                value="<%= locals.oldData ? oldData.nombre : null %>"
+                >
+                
+                <% if (locals.errors && errors.nombre) { %>
+                    <div class="text-danger" >
+                        <%= errors.nombre.msg %>
+                    </div>
+                    <% } %>
             </div>
 
             <div class="control-formulario-registro">
                 <label>Apellido</label>
-                <input type="text" name="apellido" class="control">
+                <input type="text" 
+                name="apellido" 
+                class="control"
+                value="<%= locals.oldData ? oldData.apellido : null %>"
+                >
+                <% if (locals.errors && errors.apellido) { %>
+                    <div class="text-danger" >
+                        <%= errors.apellido.msg %>
+                    </div>
+                    <% } %>
             </div>
 
             <div class="control-formulario-registro">
                 <label>Nombre de usuario</label>
-                <input type="text" name="usuario" class="control">
+                <input type="text"
+                 name="usuario" 
+                 class="control"
+                value="<%= locals.oldData ? oldData.usuario : null %>"
+                >
+                <% if (locals.errors && errors.usuario) { %>
+                    <div class="text-danger" >
+                        <%= errors.usuario.msg %>
+                    </div>
+                    <% } %>
             </div>
 
             <div class="control-formulario-registro">
                 <label>Dirección de correo electrónico</label>
-                <input type="email" name="email" class="control">
+                <input type="email" 
+                name="email" 
+                class="control"
+                value="<%= locals.oldData ? oldData.email : null %>"
+                >
+                <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger" >
+                        <%= errors.email.msg %>
+                    </div>
+                    <% } %>
             </div>
 
             <div class="control-formulario-registro">
                 <label>Contraseña</label>
-                <input type="password" name="contraseña" class="control">
+                <input type="password"
+                 name="contrasena" 
+                class="control"
+             
+                >
+                <% if (locals.errors && errors.contrasena) { %>
+                    <div class="text-danger" >
+                        <%= errors.contrasena.msg %>
+                    </div>
+                    <% } %>
+                
             </div>
 
             <div class="control-formulario-registro">
                 <label>Confirmar contraseña</label>
-                <input type="password" name="confirmarContraseña" class="control">
+                <input type="password"
+                 name="confirmarContrasena" 
+                class="control"
+               
+                >
+                <% if (locals.errors && errors.confirmarContrasena) { %>
+                    <div class="text-danger" >
+                        <%= errors.confirmarContrasena.msg %>
+                    </div>
+                    <% } %>
+            </div>
+            <div class="control-formulario-registro">
+                
+                <input type="file" name="avatar" class="control">
+                <% if (locals.errors && errors.avatar) { %>
+                    <div class="text-danger" >
+                        <%= errors.avatar.msg %>
+                    </div>
+                    <% } %>
             </div>
 
             <div class="control-formulario-registro">
