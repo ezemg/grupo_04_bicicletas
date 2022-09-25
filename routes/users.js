@@ -5,12 +5,10 @@ var router = express.Router();
 //router.get('/', function(req, res, next) {
   //res.send('respond with a resource');
 //});
-
 const usuariosController = require('../controllers/userController')
 
 router.get('/login', usuariosController.login);
 
-router.get('/registro', usuariosController.register);
 
 module.exports = router;
 
