@@ -8,5 +8,15 @@
   "contrasena": "$2a$10$U7LOkxNgpUJJHl49L1Xh5OI5a.ooJNM9o5Awbp14DZ37MY1qbbjxm",
   "confirmarContrasena": "$2a$10$tZimph9R8nSxLt/QVudPEuiE2ETvhB/.g7OtUOvMmS.qYEQ.9Zn72",
   "avatar": "1664075882182_img.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Fernando",
+  "apellido": "Nogues",
+  "usuario": "fer",
+  "email": "itonogues@gmail.com",
+  "contrasena": "$2a$10$SFSBlnXfeLHNi344ZQj9du8F2QiGyenfCalWFdLIbq12/.f1wy2jq",
+  "confirmarContrasena": "$2a$10$y0In8pHFMNwfJQ2pRXoJYu3lHPdEp.3ZHbjVCPrvsyj54lgTs4dom",
+  "avatar": "1664658734536_img.jpg"
  }
 ]

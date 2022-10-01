@@ -80,6 +80,28 @@
             </div>
 
         </div>
+        <%}else {%>
+            <div class="user-flex-desktop">
+
+                <div class="login-flex-desktop">
+                    <div class="login-desktop">
+                        <img src="/images/users/<%= locals.userLogged.avatar%>" width="40" style="border-radius:100% ;"> 
+                        
+                    </div>
+                </div>
+                <div class="login-flex-desktop">
+                    <div class="login-desktop">
+                        <button><a href="/users/profile"><%= locals.userLogged.nombre %></a></button>  
+                    </div>
+                </div>
+    
+                <div class="registro-flex-desktop">
+                    <div class="registro-desktop">
+                        <button><a href="/users/logout">Logout</a></button>  
+                    </div>
+                </div>
+    
+            </div>
         <%}%>
         
     </section>
