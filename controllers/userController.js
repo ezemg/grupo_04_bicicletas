@@ -43,6 +43,7 @@ const userController = {
     },
 
     loginProcess:(req, res) =>{
+
         let userToLogin = User.findByField('email', req.body.email);
 
         if (userToLogin) {
@@ -51,6 +52,11 @@ const userController = {
                 delete userToLogin.contrasena;
                 delete userToLogin.confirmarContrasena;
                 req.session.userLogged = userToLogin;
+
+                if (req.body.recordar){
+                    res.cookie('userEmail', req.body.email,{ maxAge:(1000*60)*2  })
+                }
+
                 return res.redirect('/users/profile')
             }
             return res.render ('users/login',{
@@ -78,12 +84,15 @@ const userController = {
     },
 
     register: (req, res) => {
-        return res.render('users/registro')   
+        
+        return res.render('users/registro')
+
         
     },
     //Perfil de usuarrio
     profile: (req, res) => {
-      
+         
+     
         return res.render('users/profile',{
             user:req.session.userLogged
         });   
@@ -91,6 +100,7 @@ const userController = {
     },
 
     logout: (req, res)=>{
+        res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/')
     }

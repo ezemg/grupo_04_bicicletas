@@ -5,6 +5,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+const cookies = require('cookie-parser'); 
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.use (Session({
   resave:false,
   saveUninitialized: false,
 }));
+app.use (cookies());
 app.use (userLoggedMiddleware);
 
 // view engine setup
