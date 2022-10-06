@@ -18,5 +18,14 @@
   "contrasena": "$2a$10$SFSBlnXfeLHNi344ZQj9du8F2QiGyenfCalWFdLIbq12/.f1wy2jq",
   "confirmarContrasena": "$2a$10$y0In8pHFMNwfJQ2pRXoJYu3lHPdEp.3ZHbjVCPrvsyj54lgTs4dom",
   "avatar": "1664658734536_img.jpg"
+ },
+ {
+  "id": 1665067467786,
+  "nombre": "Ezequiel Matias",
+  "apellido": "Grynberg",
+  "email": "ezequielmatiasgr@gmail.com",
+  "contrasena": "$2a$10$fg.sfpApYaFunlG7Qz6EoeHiIubGzwiXiK.q5Yj1UQQUOXedw/WN6",
+  "confirmarContrasena": "$2a$10$ErsGfK2K8B6JC8ThkxZhg.8I8T07v1e32Kct3SH41Z9V.NzetxGDK",
+  "avatar": "1665067467587_img.jpeg"
  }
 ]

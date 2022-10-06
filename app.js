@@ -1,12 +1,11 @@
 const createError = require('http-errors');
 const express = require('express');
-const Session = require ('express-session')
+const Session = require('express-session')
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
-const cookies = require('cookie-parser'); 
-
+const cookies = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -19,13 +18,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"))
-app.use (Session({
+app.use(Session({
   secret: 'shh',
-  resave:false,
+  resave: false,
   saveUninitialized: false,
 }));
-app.use (cookies());
-app.use (userLoggedMiddleware);
+app.use(cookies());
+app.use(userLoggedMiddleware);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,7 +32,7 @@ app.set('view engine', 'ejs');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const productsRouter = require ('./routes/products');
+const productsRouter = require('./routes/products');
 
 
 
@@ -43,12 +42,12 @@ app.use('/users', usersRouter);
 app.use('/products', productsRouter)
 
 //  catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -62,3 +61,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+//

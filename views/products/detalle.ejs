@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,96 +10,105 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
-    <link  href="/css/normalize.css" rel="stylesheet">
-    <link  href="/css/stylesdetalle.css" rel="stylesheet">
-    <link  href="/css/styles.css" rel="stylesheet">
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/stylesdetalle.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
+
 <body>
-    <%- include('../partials/header.ejs')%> 
-    <main>
+    <%- include('../partials/header.ejs')%>
+        <main>
 
-        <div class="detalle-producto">
-            <section class="imagenes-producto">
-                
-                <div class="imagen-producto-principal">
-                    
-                    <img src="../../images/productos/<%= producto.image %>" alt="">
+            <div class="detalle-producto">
+                <section class="imagenes-producto">
 
-                </div>
+                    <div class="imagen-producto-principal">
 
-                <div class="imagen-producto-secundaria">
-                    <div class="contenedor-imagen-producto-secundaria">
-                        <img src="../../images/productos/<%= producto.image %>"  alt="">
-                    </div>
-                    <div class="contenedor-imagen-producto-secundaria">
                         <img src="../../images/productos/<%= producto.image %>" alt="">
+
                     </div>
-                    <div class="contenedor-imagen-producto-secundaria">
-                        <img src="../../images/productos/<%= producto.image %>" alt="">
-                    </div>
-                </div>
-                
-            </section>
 
-
-            <section class="descripcion-producto">
-
-                <div class="ruta-descripcion-producto">
-                    <p>Inicio/Productos/<%= producto.category %>/<strong><%=producto.name%></strong></p>
-                </div>
-
-                <div class="nombre-descripcion-producto">
-                    <h2><%= producto.name %></h2>
-                </div>
-
-                <div class="precio-descripcion-producto">
-                    <h3>$<%= producto.price %>.-</h3>
-                </div>
-
-                <form action="#" method="post" class="medio-pago">
-                    <div class="boton-medio-pago">
-                        <div>
-                            <input type="radio" name="" id=""><label for="efectivo">Efectivo</label> 
+                    <div class="imagen-producto-secundaria">
+                        <div class="contenedor-imagen-producto-secundaria">
+                            <img src="../../images/productos/<%= producto.image %>" alt="">
                         </div>
-                        <div>
-                            <input type="radio" name="" id=""><label for="tarjeta">Tarjeta</label>     
+                        <div class="contenedor-imagen-producto-secundaria">
+                            <img src="../../images/productos/<%= producto.image %>" alt="">
                         </div>
-                        
+                        <div class="contenedor-imagen-producto-secundaria">
+                            <img src="../../images/productos/<%= producto.image %>" alt="">
+                        </div>
                     </div>
-                    <div class="boton-comprar">
-                      <button type="submit">COMPRAR</button>  
+
+                </section>
+
+
+                <section class="descripcion-producto">
+
+                    <div class="ruta-descripcion-producto">
+                        <p>Inicio/Productos/<%= producto.category %>/<strong>
+                                    <%=producto.name%>
+                                </strong></p>
                     </div>
-                </form>
 
-                <div class="texto-descripcion-producto">
-                    <div class="titulo-texto-descripcion-producto">
-                        <h2>Información del producto</h2>
+                    <div class="nombre-descripcion-producto">
+                        <h2>
+                            <%= producto.name %>
+                        </h2>
                     </div>
-                    <div class="parrafo-texto-descripcion-producto">
-                        <p><%= producto.description %></p>
-                    </div>  
-                </div>
 
-                <div class="editar-eliminar">
-
-                    <div class="boton-editar-producto">
-                        <a href="/products/edit/<%= producto.id %>" class="action-button edit">Editar</a>
+                    <div class="precio-descripcion-producto">
+                        <h3>$<%= producto.price %>.-</h3>
                     </div>
-                
-                    <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST" class="boton-eliminar-producto">
-                        <button type="submit" class="action-button delete">Eliminar</button>
-                    </form>  
-                </div>
-                
-               
 
-                
+                    <form action="#" method="post" class="medio-pago">
+                        <div class="boton-medio-pago">
+                            <div>
+                                <input type="radio" name="" id=""><label for="efectivo">Efectivo</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="" id=""><label for="tarjeta">Tarjeta</label>
+                            </div>
 
-            </section>
+                        </div>
+                        <div class="boton-comprar">
+                            <button type="submit">COMPRAR</button>
+                        </div>
+                    </form>
 
-        </div>
-        
-    </main>
-    <%- include('../partials/footer.ejs')%> 
+                    <div class="texto-descripcion-producto">
+                        <div class="titulo-texto-descripcion-producto">
+                            <h2>Información del producto</h2>
+                        </div>
+                        <div class="parrafo-texto-descripcion-producto">
+                            <p>
+                                <%= producto.description %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <% if (locals.isLogged) { %>
+
+                        <div class="editar-eliminar">
+
+                            <div class="boton-editar-producto">
+                                <a href="/products/edit/<%= producto.id %>" class="action-button edit">Editar</a>
+                            </div>
+
+                            <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST"
+                                class="boton-eliminar-producto">
+                                <button type="submit" class="action-button delete">Eliminar</button>
+                            </form>
+                        </div>
+
+                        <% } %>
+
+                </section>
+
+            </div>
+
+        </main>
+        <%- include('../partials/footer.ejs')%>
 </body>
+
 </html>

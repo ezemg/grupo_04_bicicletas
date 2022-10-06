@@ -5,18 +5,24 @@
         </div>
 
         <div class="info-contacto-header">
-            
+
             <div class="telefono-header">
-                <a href="#"><p><i class="fa-brands fa-whatsapp"></i>  +5491123456789</p></a>
+                <a href="#">
+                    <p><i class="fa-brands fa-whatsapp"></i> +5491123456789</p>
+                </a>
             </div>
 
             <div class="mail-header">
-                <a href="#"><p><i class="fa-solid fa-envelope"></i>  dhbicicletas@dhmail.com</p></a>
+                <a href="#">
+                    <p><i class="fa-solid fa-envelope"></i> dhbicicletas@dhmail.com</p>
+                </a>
             </div>
 
             <div class="direccion-header">
-                <a href="#"><p><i class="fa-solid fa-location-dot"></i>  Av. Calle Falsa 123</p></a>
-                
+                <a href="#">
+                    <p><i class="fa-solid fa-location-dot"></i> Av. Calle Falsa 123</p>
+                </a>
+
             </div>
         </div>
     </section>
@@ -31,13 +37,13 @@
         </div>
 
         <div class="logoflex">
-            
+
             <div class="logo">
-                <a href="/"><img src="../../images/logodhbikes.svg" ></a>
+                <a href="/"><img src="../../images/logodhbikes.svg"></a>
             </div>
-            
+
         </div>
-        
+
         <div class="user-flex-mobile">
             <div class="user-flex-mobile">
                 <a href="#"><i class="fa-solid fa-user"></i></a>
@@ -45,7 +51,7 @@
         </div>
 
 
-        
+
 
         <div class="cart-flex">
             <div class="cart">
@@ -54,55 +60,52 @@
         </div>
 
         <div class="menu-desktop-flex">
-           <nav class="menu-desktop">
-                 <ul type="none">
+            <nav class="menu-desktop">
+                <ul type="none">
                     <li><a href="/">Home</a></li>
                     <li><a href="#">Sobre Nosotros</a></li>
                     <li><a href="/products">Productos</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
-            </nav> 
+            </nav>
         </div>
         <% if (!locals.isLogged) {%>
 
-        <div class="user-flex-desktop">
-            
-            <div class="login-flex-desktop">
-                <div class="login-desktop">
-                    <button><a href="/users/login">login</a></button>  
-                </div>
-            </div>
-
-            <div class="registro-flex-desktop">
-                <div class="registro-desktop">
-                    <button><a href="/users/register">registro</a></button>  
-                </div>
-            </div>
-
-        </div>
-        <%}else {%>
             <div class="user-flex-desktop">
 
                 <div class="login-flex-desktop">
                     <div class="login-desktop">
-                        <img src="/images/users/<%= locals.userLogged.avatar%>" width="40" style="border-radius:100% ;"> 
-                        
+                        <button><a href="/users/login">login</a></button>
                     </div>
                 </div>
-                <div class="login-flex-desktop">
-                    <div class="login-desktop">
-                        <button><a href="/users/profile"><%= locals.userLogged.nombre %></a></button>  
-                    </div>
-                </div>
-    
+
                 <div class="registro-flex-desktop">
                     <div class="registro-desktop">
-                        <button><a href="/users/logout">Logout</a></button>  
+                        <button><a href="/users/register">registro</a></button>
                     </div>
                 </div>
-    
+
             </div>
-        <%}%>
-        
+
+            <%} else {%>
+                <div class="user-flex-desktop-logged">
+
+                    <div class="user-flex-desktop-nombre">
+                        <div class="login-desktop">
+                            <a href="/users/profile">
+                                <%= locals.userLogged.nombre %>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="user-flex-desktop-logout">
+                        <a href="/users/logout">Logout</a>
+                    </div>
+
+                </div>
+                <%}%>
+
     </section>
-</header>    
+</header>

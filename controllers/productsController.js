@@ -9,13 +9,13 @@ const productsController = {
 
      // Index de productos - listar todos     
      listar: (req, res) => {
-          res.render('products/listado', {products})
+          res.render('products/listado', { products })
      },
 
      // Detalle de un producto
      detalle: (req, res) => {
           const producto = products.find((p) => p.id == req.params.id);
-          res.render('products/detalle', {producto})
+          res.render('products/detalle', { producto })
      },
 
      // Crear nuevo producto - Obtener formulario
@@ -26,17 +26,17 @@ const productsController = {
      // Crear nuevo producto - Función para guardar nuevo producto
 
      guardar: (req, res) => {
-       
+
           let productoNuevo = {
                id: Date.now(),
                name: req.body.name,
                description: req.body.description,
                category: req.body.category,
-               image: 'default-image.jpg', 
+               image: 'default-image.jpg',
                price: req.body.price,
           }
-          
-          if(req.file){
+
+          if (req.file) {
                productoNuevo.image = req.file.filename;
           }
 
@@ -52,20 +52,20 @@ const productsController = {
      // Editar producto existente - Obtener formulario
      editar: (req, res) => {
           const producto = products.find((p) => p.id == req.params.id);
-          res.render('products/editarProducto', {productoAEditar: producto});
+          res.render('products/editarProducto', { productoAEditar: producto });
      },
 
      // Editar producto - Actualizar información producto
      actualizar: (req, res) => {
-          
-          products.forEach((p) =>{
+
+          products.forEach((p) => {
                if (p.id == req.params.id) {
                     p.name = req.body.name;
                     p.description = req.body.description;
                     p.category = req.body.category;
                     p.price = req.body.price;
 
-                    if(req.file){
+                    if (req.file) {
                          fs.unlinkSync("./public/images/productos/" + p.image);
                          p.image = req.file.filename
                     }
@@ -81,12 +81,12 @@ const productsController = {
 
      eliminar: (req, res) => {
           let producto = products.find((p) => p.id == req.params.id);
-          
+
           products = products.filter((p) => p.id != req.params.id);
 
-          console.log(producto)
 
-          if(producto && producto.image != 'default-image.jpg') {
+
+          if (producto && producto.image != 'default-image.jpg') {
                fs.unlinkSync("./public/images/productos/" + producto.image)
           }
 
@@ -101,8 +101,6 @@ const productsController = {
      carrito: (req, res) => {
           res.render('products/carrito')
      },
-     
-     
 
 }
 
