@@ -18,10 +18,17 @@
         1) Centrar input file
         2) Idioma input file.    
     
-    - Implementar mensaje cambiante mensaje promo con animaciones CSS
+    - Implementar mensaje cambiante mensaje promo con animaciones CSS. 
 
     - Implementar tipos de usuario administrador y cliente
     
     - Mejorar interfaz header
 
     - Ver tema cierre sesion al crear, editar y eliminar productos.
+
+    - Implementar box shadow en el NAVBAR del header.
+
+    - Probar color cyan en la caja superior del header
+
+    - Probar (background: linear-gradient(to right, blue, white);
+)

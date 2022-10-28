@@ -27,5 +27,14 @@
   "contrasena": "$2a$10$fg.sfpApYaFunlG7Qz6EoeHiIubGzwiXiK.q5Yj1UQQUOXedw/WN6",
   "confirmarContrasena": "$2a$10$ErsGfK2K8B6JC8ThkxZhg.8I8T07v1e32Kct3SH41Z9V.NzetxGDK",
   "avatar": "1665067467587_img.jpeg"
+ },
+ {
+  "id": 1665108658665,
+  "nombre": "Rodri",
+  "apellido": "Profe",
+  "email": "rodri@dh.com",
+  "contrasena": "$2a$10$InsrT1okJK1uHf5.44nx4eWymEyOFUaU/2QRGVJjgcrdO3JvL1cq.",
+  "confirmarContrasena": "$2a$10$QRwz96/0aeTsO4w/5.jEveEYrhMuB46E80b/Iz/jl7ghVfFMMHA1u",
+  "avatar": "1665108658242_img.jpg"
  }
 ]
