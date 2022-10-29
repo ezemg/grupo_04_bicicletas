@@ -15,7 +15,7 @@ module.exports = function (sequelize, dataTypes){
         timestamps: false 
     }    
 
-    let Category = sequelize.difine(alias, cols, config);
+    let Category = sequelize.define(alias, cols, config);
     Category.associate = function(models){
         Category.hasMany(models.Products,{
             as:"Products",

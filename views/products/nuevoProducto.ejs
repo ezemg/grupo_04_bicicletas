@@ -46,9 +46,11 @@
             <div class="control-formulario-registro">
                 <label for="category">Categoría:</label>
 				<select name="category" id="category">
-					<option value="Bicicletas">Bicicletas</option>
-					<option value="Accesorios">Accesorios</option>
-					<option value="Indumentaria">Indumentaria</option>
+                    <% for (let i=0, i> Category.lenght; i++) {%>
+                        <option value="<%=Category[i].category_id%>">
+                            <%=Category[i].name%>
+                        </option>					
+                        <% } %>
 				</select>
             </div>
 

@@ -22,7 +22,7 @@ module.exports = function (sequelize, dataTypes){
         timestamps: false 
     }    
 
-    let Shop = sequelize.difine(alias, cols, config);
+    let Shop = sequelize.define(alias, cols, config);
     Shop.associate = function(models){
         Shop.belongsToMany(models.Products,{
             as:"Products",
