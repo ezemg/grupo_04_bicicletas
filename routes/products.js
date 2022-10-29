@@ -18,7 +18,6 @@ router.get("/", productsController.listar);
 router.get("/producto/:id", productsController.detalle);
 
 // Acceder a formulario nuevo producto
-router.get("/crear",  productsController.crear);
 router.get("/nuevo-producto", authMiddleware, productsController.nuevoProducto);
 // Guardar producto nuevo
 router.post("/nuevo-producto", upload.single("fotoProducto"), productsController.guardar);

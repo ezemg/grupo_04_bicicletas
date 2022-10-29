@@ -28,20 +28,20 @@ module.exports = function (sequelize, dataTypes){
     }    
 
     let Product = sequelize.define(alias, cols, config);
-
-    Product.associate = function(models){
+/*
+   Product.associate = function(models){
         Product.belongsTo(models.Category,{
             as:"Category",
             foreignKey:'category_id'
         })
-        Product.belongsToMany(models.Products,{
+        Product.belongsToMany(models.shopping,{
             as:"shopping",
-            throught:'products_shopping',
+            through:'products_shopping',
             foreignKey:'product_id',
             otherKey:'shopping_id',
             timestamps:false
         });
     }
-
+*/
     return Product;
 }

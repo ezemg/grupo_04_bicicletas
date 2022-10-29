@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path')
-let db = require("../database/models");
+
 const productsFilePath = path.join(__dirname, "../data/productsDataBase.json");
 
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -19,16 +19,17 @@ const productsController = {
      },
 
      // Crear nuevo producto - Obtener formulario
+     
      nuevoProducto: (req, res) => {
-          res.render('products/nuevoProducto')
-     },
-       // Crear nuevo producto (base de datos) 
-       crear: (req, res) => {
+                // Crear nuevo producto (base de datos) 
           db.Category.findAll()
           .then(function(Category){
-              return res.render("nuevo-producto", {Category : Category}); 
+               return res.render("nuevoProducto", {Category : Category}); 
           })
+           // res.render('products/nuevoProducto')
      },
+
+     
 
      // Crear nuevo producto - Función para guardar nuevo producto
 

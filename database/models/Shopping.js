@@ -23,15 +23,21 @@ module.exports = function (sequelize, dataTypes){
     }    
 
     let Shop = sequelize.define(alias, cols, config);
+   /*
     Shop.associate = function(models){
+
+        Shop.belongsTo(models.Users,{
+            as:"shopping",
+            foreignKey:'id_user'
+        });
         Shop.belongsToMany(models.Products,{
             as:"Products",
-            throught:'products_shopping',
+            through:'products_shopping',
             foreignKey:'shopping_id',
             otherKey:'product_id',
             timestamps:false
         });
     }
-
+*/
     return Shop;
 }

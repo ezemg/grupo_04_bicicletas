@@ -4,7 +4,8 @@ module.exports={
     "password": null,
     "database": "dh_bikes",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases":false
   },
   "test": {
     "username": "root",
@@ -16,7 +17,7 @@ module.exports={
   "production": {
     "username": "root",
     "password": null,
-    "database": "dh_bikes",
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
