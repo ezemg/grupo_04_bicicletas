@@ -23,7 +23,7 @@ module.exports = function (sequelize, dataTypes){
     }    
 
     let Shop = sequelize.define(alias, cols, config);
-   /*
+   
     Shop.associate = function(models){
 
         Shop.belongsTo(models.Users,{
@@ -38,6 +38,6 @@ module.exports = function (sequelize, dataTypes){
             timestamps:false
         });
     }
-*/
+
     return Shop;
 }

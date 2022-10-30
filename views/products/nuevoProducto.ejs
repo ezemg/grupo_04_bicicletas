@@ -47,11 +47,12 @@
                 <label for="category">Categoría:</label>
                 
 				<select name="category" id="category">
-                    <% for (let i=0, i < Category.lenght; i++) { %>
-                        <option value="<%= Category[1].category_id %>">
+                    
+                        <option value="<%= Category[i].category_id %>">
                             <%= Category[1].name %>
                         </option>					
-                        <% } %>
+                        <%= console.log(Category[1].name) %>
+                    
 				</select>
             </div>
 

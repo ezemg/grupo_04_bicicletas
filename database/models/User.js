@@ -8,10 +8,11 @@ module.exports = function (sequelize, dataTypes){
         timestamps: false 
     }    
     let User = sequelize.define(alias, cols, config);
-    /*
+    
     User.associate = function(models){
-        User.belongsTo(models.userCategory,{
-            as:"userCategory",
+        
+        User.belongsTo(models.UsersCategory,{
+            as:"UsersCategory",
             foreignKey:'id_user_category'
         })
         User.hasMany(models.shopping,{
@@ -19,7 +20,7 @@ module.exports = function (sequelize, dataTypes){
             foreignKey:'id_user'
         });
     }
-    */
+    
     return User
 
 }

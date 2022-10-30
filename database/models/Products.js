@@ -28,7 +28,7 @@ module.exports = function (sequelize, dataTypes){
     }    
 
     let Product = sequelize.define(alias, cols, config);
-/*
+
    Product.associate = function(models){
         Product.belongsTo(models.Category,{
             as:"Category",
@@ -42,6 +42,6 @@ module.exports = function (sequelize, dataTypes){
             timestamps:false
         });
     }
-*/
+
     return Product;
 }
