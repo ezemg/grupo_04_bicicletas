@@ -25,12 +25,24 @@ const productsController = {
           db.Category.findAll()
                .then(Category =>{
                    
-                    return res.render("nuevoProducto", {Category:Category});                
+                    return res.render("products/nuevoProducto", {Category:Category});                
                     
                      
                })
             //res.render('products/nuevoProducto')
      },
+
+     crear: (req, res) => {             
+          db.Category.findAll()
+          .then(Category =>{
+              
+               return res.render("products/prueba", {Category:Category});                
+               
+                
+          })           
+          // return  res.render('products/prueba')
+     },
+
 
      
 

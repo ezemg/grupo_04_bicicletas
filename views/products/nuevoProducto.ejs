@@ -48,10 +48,11 @@
                 
 				<select name="category" id="category">
                     
+                    <% for (let i=0; (i < Category.length); i++) { %>
                         <option value="<%= Category[i].category_id %>">
-                            <%= Category[1].name %>
+                            <%= Category[i].name %>
                         </option>					
-                        <%= console.log(Category[1].name) %>
+                        <% } %>		
                     
 				</select>
             </div>
