@@ -18,7 +18,7 @@ module.exports = (sequelize, dataTypes) => {
         // Revisar longitud de descripcion en DB y luego pasar a modelos. 255 es muy poco
 
         description: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING('MAX')
         },
 
         image: {

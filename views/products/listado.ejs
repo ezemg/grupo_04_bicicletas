@@ -25,34 +25,40 @@
 
                 <h2>PRODUCTOS</h2>
 
-                <div class="products">
+                <% if (locals.admin) { %>
+                    <div class="agregar-producto">
+                        <a href="/products/nuevo-producto">AGREGAR PRODUCTO</a>
+                    </div>
+                    <% } %>
 
-                    <% for(let producto of products) { %>
+                        <div class="products">
 
-                        <article class="product">
-                            <a href="/products/producto/<%= producto.id_products %> ">
-                                <div class="img-product">
-                                    <img src="../images/productos/<%= producto.image %>" alt="imagen producto"
-                                        class="product-img">
-                                </div>
-                                <div class="main-article">
-                                    <h4 class="description">
-                                        <%= producto.name %>
-                                    </h4>
-                                    <div class="box-price">
-                                        <p class="price">$<%= producto.price %> .-</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
+                            <% for(let producto of products) { %>
 
-
-
-                        <% } %>
+                                <article class="product">
+                                    <a href="/products/producto/<%= producto.id_products %> ">
+                                        <div class="img-product">
+                                            <img src="../images/productos/<%= producto.image %>" alt="imagen producto"
+                                                class="product-img">
+                                        </div>
+                                        <div class="main-article">
+                                            <h4 class="description">
+                                                <%= producto.name %>
+                                            </h4>
+                                            <div class="box-price">
+                                                <p class="price">$<%= producto.price %> .-</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </article>
 
 
 
-                </div>
+                                <% } %>
+
+
+
+                        </div>
 
             </section>
 

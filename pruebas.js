@@ -1,3 +1,6 @@
+
+console.log('hola mundo')
+
 const { Generator } = require('randomly-id-generator');
 
 const idGenerator = new Generator().generate()
@@ -8,25 +11,25 @@ console.log(idGenerator)
 listar: async (req, res) => {
 
     try {
-        // let productos = await db.Products.findAll(
-        //      {
-        //           include: [
-        //                {
-        //                     association: 'Category',
-        //                     association: 'shoppings',
-        //                     raw: true,
-        //                     nest: true
-        //                }
-        //           ]
-        //      }
-        // )
+        let productos = await db.Products.findAll(
+            {
+                include: [
+                    {
+                        association: 'Category',
+                        association: 'shoppings',
+                        raw: true,
+                        nest: true
+                    }
+                ]
+            }
+        )
 
-        // let shoppings = await db.Shoppings.findAll({
-        //      include: [
-        //           { association: 'User' },
-        //           { association: 'Products' }
-        //      ]
-        // })
+        let shoppings = await db.Shoppings.findAll({
+            include: [
+                { association: 'User' },
+                { association: 'Products' }
+            ]
+        })
 
         let users = await db.Users.findAll({
             include: [

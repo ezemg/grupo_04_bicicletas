@@ -31,4 +31,6 @@
     - Probar color cyan en la caja superior del header
 
     - Probar (background: linear-gradient(to right, blue, white);
+
+    - Implementar formulario de modificación de usuarios con opción de modificar clase de usuario para administradores
 )
