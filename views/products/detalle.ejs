@@ -87,20 +87,23 @@
                         </div>
                     </div>
 
-                    <% if (locals.isLogged) { %>
 
-                        <div class="editar-eliminar">
 
-                            <div class="boton-editar-producto">
-                                <a href="/products/edit/<%= producto.id %>" class="action-button edit">Editar</a>
-                            </div>
+                    <div class="editar-eliminar">
 
-                            <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST"
-                                class="boton-eliminar-producto">
-                                <button type="submit" class="action-button delete">Eliminar</button>
-                            </form>
+                        <div class="boton-editar-producto">
+                            <a href="/products/edit/<%= producto.id_products %>" class="action-button edit">Editar</a>
                         </div>
 
+                        <form action="/products/delete/<%= producto.id_products %>?_method=DELETE" method="POST"
+                            class="boton-eliminar-producto">
+                            <button type="submit" class="action-button delete">Eliminar</button>
+                        </form>
+                    </div>
+
+                    <!-- Poner botones de editar y eliminar solo con locals.islogged -->
+
+                    <% if (locals.isLogged) { %>
                         <% } %>
 
                 </section>

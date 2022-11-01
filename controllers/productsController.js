@@ -1,99 +1,168 @@
 const fs = require('fs');
 const path = require('path')
+const db = require('../database/models')
 
-const productsFilePath = path.join(__dirname, "../data/productsDataBase.json");
-
-let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productsController = {
 
+
      // Index de productos - listar todos     
-     listar: (req, res) => {
-          res.render('products/listado', { products })
+     listar: async (req, res) => {
+
+          try {
+               let products = await db.Products.findAll({
+                    include: [
+                         { association: 'category' },
+                         { association: 'shoppings' }
+                    ]
+               })
+
+               // console.log(productos[1].shoppings)
+               res.render('products/listado', { products })
+
+          } catch (error) {
+               console.log({ error })
+          }
+
+
      },
 
      // Detalle de un producto
-     detalle: (req, res) => {
-          const producto = products.find((p) => p.id == req.params.id);
-          res.render('products/detalle', { producto })
+     detalle: async (req, res) => {
+
+          try {
+               let producto = await db.Products.findByPk(
+                    req.params.id,
+                    {
+                         include: [
+                              { association: 'category' },
+                              { association: 'shoppings' }
+                         ]
+                    }
+               )
+
+               res.render('products/detalle', { producto })
+          } catch (error) {
+               console.log({ error })
+          }
+
      },
 
      // Crear nuevo producto - Obtener formulario
-     nuevoProducto: (req, res) => {
-          res.render('products/nuevoProducto')
+     nuevoProducto: async (req, res) => {
+
+          try {
+               let categories = await db.Categories.findAll()
+
+               // console.log(productos[1].shoppings)
+               res.render('products/nuevoProducto', { categories })
+
+          } catch (error) {
+               console.log({ error })
+
+          }
      },
 
      // Crear nuevo producto - Función para guardar nuevo producto
 
-     guardar: (req, res) => {
+     guardar: async (req, res) => {
 
-          let productoNuevo = {
-               id: Date.now(),
-               name: req.body.name,
-               description: req.body.description,
-               category: req.body.category,
-               image: 'default-image.jpg',
-               price: req.body.price,
+          try {
+               let productoNuevo = await db.Products.create(
+                    {
+                         id_products: Number(String(Date.now()).slice(6)),
+                         name: req.body.name,
+                         description: req.body.description,
+                         image: req.file ? req.file.filename : 'default-image.jpg',
+                         price: req.body.price,
+                         category_id: req.body.category
+                    },
+               )
+               res.redirect('/products')
           }
 
-          if (req.file) {
-               productoNuevo.image = req.file.filename;
+          catch (error) {
+               console.log(error)
           }
-
-          products.push(productoNuevo);
-
-          let data = JSON.stringify(products, null, " ");
-
-          fs.writeFileSync(productsFilePath, data);
-
-          res.redirect('/products')
      },
 
      // Editar producto existente - Obtener formulario
-     editar: (req, res) => {
-          const producto = products.find((p) => p.id == req.params.id);
-          res.render('products/editarProducto', { productoAEditar: producto });
+     editar: async (req, res) => {
+
+          try {
+               let productoAEditar = await db.Products.findByPk(req.params.id);
+
+               let categories = await db.Categories.findAll();
+
+               res.render('products/editarProducto', { productoAEditar, categories })
+          }
+          catch (error) {
+               console.log({ error })
+          }
      },
 
      // Editar producto - Actualizar información producto
-     actualizar: (req, res) => {
+     actualizar: async (req, res) => {
 
-          products.forEach((p) => {
-               if (p.id == req.params.id) {
-                    p.name = req.body.name;
-                    p.description = req.body.description;
-                    p.category = req.body.category;
-                    p.price = req.body.price;
 
-                    if (req.file) {
-                         fs.unlinkSync("./public/images/productos/" + p.image);
-                         p.image = req.file.filename
-                    }
+          try {
+
+               let producto = await db.Products.findByPk(req.params.id)
+
+               if (producto && producto.image != 'default-image.jpg') {
+                    fs.unlinkSync("./public/images/productos/" + producto.image)
                }
-          })
 
-          const data = JSON.stringify(products, null, "");
-          fs.writeFileSync(productsFilePath, data);
 
-          res.redirect("/products/producto/" + req.params.id)
 
+               let productoNuevo = await db.Products.update(
+                    {
+                         name: req.body.name,
+                         description: req.body.description,
+                         image: req.file ? req.file.filename : 'default-image.jpg',
+                         price: req.body.price,
+                         category_id: req.body.category
+                    }, {
+                    where: {
+                         id_products: req.params.id
+                    }
+               })
+               res.redirect("/products/producto/" + req.params.id)
+          }
+          catch (error) {
+               console.log(error)
+          }
      },
 
-     eliminar: (req, res) => {
-          let producto = products.find((p) => p.id == req.params.id);
+     eliminar: async (req, res) => {
 
-          products = products.filter((p) => p.id != req.params.id);
+          try {
+               let productoAEliminar = await db.Products.findByPk(req.params.id)
 
-
-
-          if (producto && producto.image != 'default-image.jpg') {
-               fs.unlinkSync("./public/images/productos/" + producto.image)
+               if (productoAEliminar && productoAEliminar.image != 'default-image.jpg') {
+                    fs.unlinkSync("./public/images/productos/" + productoAEliminar.image)
+               }
           }
 
-          const data = JSON.stringify(products, null, " ");
-          fs.writeFileSync(productsFilePath, data);
+          catch (error) {
+               console.log(error)
+          }
 
-          res.redirect('/products')
+
+          try {
+
+               let eliminarProducto = await db.Products.destroy(
+                    {
+                         where: {
+                              id_products: req.params.id
+                         }
+                    })
+
+               res.redirect('/products')
+          }
+          catch (error) {
+               console.log(error)
+          }
 
      },
 
