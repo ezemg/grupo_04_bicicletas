@@ -1,7 +1,7 @@
 module.exports = function (sequelize, dataTypes){
     let alias ="shopping";
     let cols ={
-        shopping_id:{
+        id_shopping:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
@@ -33,8 +33,8 @@ module.exports = function (sequelize, dataTypes){
         Shop.belongsToMany(models.Products,{
             as:"Products",
             through:'products_shopping',
-            foreignKey:'shopping_id',
-            otherKey:'product_id',
+            foreignKey:'id_shopping',
+            otherKey:'id_products',
             timestamps:false
         });
     }

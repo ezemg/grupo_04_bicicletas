@@ -1,10 +1,11 @@
 module.exports = function (sequelize, dataTypes){
     let alias ="Products";
     let cols ={
-        product_id:{
+        id_products:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
+            
         },
         name:{
             type: dataTypes.STRING
@@ -37,8 +38,8 @@ module.exports = function (sequelize, dataTypes){
         Product.belongsToMany(models.shopping,{
             as:"shopping",
             through:'products_shopping',
-            foreignKey:'product_id',
-            otherKey:'shopping_id',
+            foreignKey:'id_products',
+            otherKey:'id_shopping',
             timestamps:false
         });
     }

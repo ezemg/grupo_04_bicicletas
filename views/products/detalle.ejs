@@ -20,8 +20,9 @@
         <main>
 
             <div class="detalle-producto">
+                
                 <section class="imagenes-producto">
-
+                
                     <div class="imagen-producto-principal">
 
                         <img src="../../images/productos/<%= producto.image %>" alt="">
@@ -41,12 +42,12 @@
                     </div>
 
                 </section>
-
+            
 
                 <section class="descripcion-producto">
 
                     <div class="ruta-descripcion-producto">
-                        <p>Inicio/Productos/<%= producto.category %>/<strong>
+                        <p>Inicio/Productos/<%= producto.category_id %>/<strong>
                                     <%=producto.name%>
                                 </strong></p>
                     </div>
@@ -92,10 +93,10 @@
                         <div class="editar-eliminar">
 
                             <div class="boton-editar-producto">
-                                <a href="/products/edit/<%= producto.id %>" class="action-button edit">Editar</a>
+                                <a href="/products/edit/<%= producto.id_products %>" class="action-button edit">Editar</a>
                             </div>
 
-                            <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST"
+                            <form action="/products/delete/<%= producto.id_products %>?_method=DELETE" method="POST"
                                 class="boton-eliminar-producto">
                                 <button type="submit" class="action-button delete">Eliminar</button>
                             </form>

@@ -20,7 +20,7 @@
     <div class="titulo-formulario-registro"><p>Editar Producto</p></div>
 
     <div class="formulario">
-        <form action="/products/edit/<%= productoAEditar.id %>?_method=PUT" method="POST" class="create-form" enctype="multipart/form-data">
+        <form action="/products/edit/<%= productoAEditar.id_products %>?_method=PUT" method="POST" class="create-form" enctype="multipart/form-data">
         
             <div class="control-formulario-registro">
                 <label for="name">Nombre del Producto</label>
@@ -41,13 +41,25 @@
                 <label for="files">Suba la Imagen del Producto</label>
                 <input type="file" id="files" name="fotoProducto" class="control" placeholder="hola">
             </div>
-
+            
             <div class="control-formulario-registro">
                 <label for="category">Categoría:</label>
+               
 				<select name="category" id="category">
-					<option value="Bicicletas" <%= (productoAEditar.category == "Bicicletas")? "selected":"" %> >Bicicletas</option>
-					<option value="Accesorios" <%= (productoAEditar.category == "Accesorios")? "selected":"" %>>Accesorios</option>
-					<option value="Indumentaria" <%= (productoAEditar.category == "Indumentaria")? "selected":"" %>>Indumentaria</option>
+
+                    <% for (let i=0; (i < categoria.length); i++) { %>
+                        <% if (categoria[i].category_id == productoAEditar.category_id) { %>
+                        <option value="<%= categoria[i].category_id %>" selected>
+                            <%= categoria[i].name %>
+                        </option>
+                        <%}else{%>
+                            <option value="<%= categoria[i].category_id %>" >
+                                <%= categoria[i].name %>
+                            </option>				
+                        <% } %>		
+                        <%}%>        
+                    
+				
 				</select>
             </div>
 
