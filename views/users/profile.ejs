@@ -42,6 +42,18 @@
                                 <%= user.email %>
                             </strong></p>
                     </div>
+
+                    <div class="info-perfil-mail">
+                        <% if (locals.admin) { %>
+                            <p> Usuario administrador</p>
+                            <% } else if(locals.guest){%>
+                                <p>usuario invitado</p>
+                                <% } %>
+                    </div>
+
+                    <% if (locals.admin) { %>
+
+                        <% } %>
                 </section>
 
             </div>
