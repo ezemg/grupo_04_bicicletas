@@ -32,5 +32,7 @@
 
     - Probar (background: linear-gradient(to right, blue, white);
 
-    - Implementar formulario de modificación de usuarios con opción de modificar clase de usuario para administradores
+    - Implementar formulario de modificación de usuarios con opción de modificar clase de usuario para administradores.
+
+    - Opcion de eliminar usuario
 )

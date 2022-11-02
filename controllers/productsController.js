@@ -109,17 +109,15 @@ const productsController = {
 
                let producto = await db.Products.findByPk(req.params.id)
 
-               if (producto && producto.image != 'default-image.jpg') {
-                    fs.unlinkSync("./public/images/productos/" + producto.image)
-               }
-
-
+               console.log('========================================')
+               console.log(producto.image)
+               console.log('========================================')
 
                let productoNuevo = await db.Products.update(
                     {
                          name: req.body.name,
                          description: req.body.description,
-                         image: req.file ? req.file.filename : 'default-image.jpg',
+                         image: req.file ? req.file.filename : producto.image,
                          price: req.body.price,
                          category_id: req.body.category
                     }, {
@@ -127,6 +125,14 @@ const productsController = {
                          id_products: req.params.id
                     }
                })
+
+               let productoEditado = await db.Products.findByPk(req.params.id)
+
+               
+               if (producto && producto.image != 'default-image.jpg' && productoEditado.image != producto.image) {
+
+                    fs.unlinkSync("./public/images/productos/" + producto.image)
+               } 
                res.redirect("/products/producto/" + req.params.id)
           }
           catch (error) {

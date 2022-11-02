@@ -35,6 +35,7 @@ const userController = {
 
                     if (req.session.userLogged.id_user_category == 2) {
                         req.session.admin = userToLogin
+                        
                     } else if (req.session.userLogged.id_user_category == 1) {
                         req.session.guest = userToLogin
                     }

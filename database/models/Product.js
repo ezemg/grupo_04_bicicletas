@@ -58,7 +58,6 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'id_shopping',
             timestamps: false
         })
-
     }
 
 
