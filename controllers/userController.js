@@ -35,7 +35,7 @@ const userController = {
 
                     if (req.session.userLogged.id_user_category == 2) {
                         req.session.admin = userToLogin
-                        
+
                     } else if (req.session.userLogged.id_user_category == 1) {
                         req.session.guest = userToLogin
                     }
@@ -92,13 +92,14 @@ const userController = {
             })
 
             if (usuarioInDB) {
-                return res.render('users/registro', {
+                res.render('users/registro', {
                     errors: {
                         email: { msg: 'Este email ya esta registrado' }
                     },
                     oldData: req.body
                 }
                 )
+
             }
 
             let userToCreate = await db.Users.create(
