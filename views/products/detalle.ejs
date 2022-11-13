@@ -47,7 +47,11 @@
                 <section class="descripcion-producto">
 
                     <div class="ruta-descripcion-producto">
+<<<<<<< HEAD
                         <p>Inicio/Productos/<%= producto.category_id %>/<strong>
+=======
+                        <p>Inicio/Productos/<%= producto.category.name %>/<strong>
+>>>>>>> 2c2c921838e2de4ef741d74d90680403d9215b17
                                     <%=producto.name%>
                                 </strong></p>
                     </div>
@@ -88,12 +92,16 @@
                         </div>
                     </div>
 
-                    <% if (locals.isLogged) { %>
-
+                    <% if (locals.admin) { %>
                         <div class="editar-eliminar">
 
                             <div class="boton-editar-producto">
+<<<<<<< HEAD
                                 <a href="/products/edit/<%= producto.id_products %>" class="action-button edit">Editar</a>
+=======
+                                <a href="/products/edit/<%= producto.id_products %>"
+                                    class="action-button edit">Editar</a>
+>>>>>>> 2c2c921838e2de4ef741d74d90680403d9215b17
                             </div>
 
                             <form action="/products/delete/<%= producto.id_products %>?_method=DELETE" method="POST"
@@ -101,7 +109,6 @@
                                 <button type="submit" class="action-button delete">Eliminar</button>
                             </form>
                         </div>
-
                         <% } %>
 
                 </section>

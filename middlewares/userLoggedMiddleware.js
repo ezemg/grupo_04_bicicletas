@@ -4,6 +4,8 @@ function userLoggedMiddleware(req, res, next) {
 
 
     res.locals.isLogged = false;
+    res.locals.admin = false;
+    res.locals.guest = false;
 
     let emailInCookie = req.cookies.userEmail;
 
@@ -15,6 +17,14 @@ function userLoggedMiddleware(req, res, next) {
     if (req.session && req.session.userLogged) {
         res.locals.isLogged = true;
         res.locals.userLogged = req.session.userLogged;
+    }
+
+    if (req.session && req.session.admin) {
+        res.locals.admin = true
+    }
+
+    if (req.session && req.session.guest) {
+        res.locals.guest = true
     }
 
     next();

@@ -628,7 +628,13 @@ footer i {
 
   .novedades h2 {
     font-size: 4rem;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+  }
+
+  .agregar-producto {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    margin-left: 20px;
   }
 
   .products {

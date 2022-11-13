@@ -1,42 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Producto</title> 
+    <title>Editar Producto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/28f161943c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet"href="/css/registrologin.css">
+    <link rel="stylesheet" href="/css/registrologin.css">
 </head>
+
 <body>
-    
-    <%- include('../partials/header.ejs')%> 
-<main>
 
-    <div class="titulo-formulario-registro"><p>Editar Producto</p></div>
+    <%- include('../partials/header.ejs')%>
+        <main>
 
+<<<<<<< HEAD
     <div class="formulario">
         <form action="/products/edit/<%= productoAEditar.id_products %>?_method=PUT" method="POST" class="create-form" enctype="multipart/form-data">
         
             <div class="control-formulario-registro">
                 <label for="name">Nombre del Producto</label>
                 <input type="text" id="name" name="name" value="<%= productoAEditar.name %>" class="control">
+=======
+            <div class="titulo-formulario-registro">
+                <p>Editar Producto</p>
+>>>>>>> 2c2c921838e2de4ef741d74d90680403d9215b17
             </div>
 
-            <div class="control-formulario-registro">
-                <label for="description">Descripcion</label>
-                <input type="text" id="description" name="description" value="<%= productoAEditar.description %>" class="control">
+            <div class="formulario">
+                <form action="/products/edit/<%= productoAEditar.id_products %>?_method=PUT" method="POST"
+                    class="create-form" enctype="multipart/form-data">
+
+                    <div class="control-formulario-registro">
+                        <label for="name">Nombre del Producto</label>
+                        <input type="text" id="name" name="name" value="<%= productoAEditar.name %>" class="control">
+                    </div>
+
+                    <div class="control-formulario-registro">
+                        <label for="description">Descripcion</label>
+                        <input type="text" id="description" name="description"
+                            value="<%= productoAEditar.description %>" class="control">
+                    </div>
+
+                    <div class="control-formulario-registro">
+                        <label for="price">Precio</label>
+                        <input type="number" id="price" name="price" value="<%= productoAEditar.price %>"
+                            class="control">
+                    </div>
+
+                    <div class="control-formulario-registro">
+                        <label for="files">Suba la Imagen del Producto</label>
+                        <input type="file" id="files" name="fotoProducto" class="control" placeholder="hola">
+                    </div>
+
+                    <div class="control-formulario-registro">
+                        <label for="category">Categoría:</label>
+                        <select name="category" id="category">
+
+                            <% for( let i=0; i < categories.length; i++ ) { %>
+                                <% if (categories[i].category_id==productoAEditar.category_id) { %>
+                                    <option value="<%= categories[i].category_id%>" selected>
+                                        <%= categories[i].name %>
+                                    </option>
+                                    <% } else {%>
+                                        <option value="<%= categories[i].category_id%>">
+                                            <%= categories[i].name %>
+                                        </option>
+                                        <% } %>
+                                            <% } %>
+
+                        </select>
+                    </div>
+
+
+                    <div class="control-formulario-registro">
+                        <button type="submit" class="boton-formulario">
+                            <span>EDITAR PRODUCTO</span>
+                        </button>
+                    </div>
+                </form>
             </div>
 
-            <div class="control-formulario-registro">
-                <label for="price">Precio</label>
-                <input type="number" id="price" name="price" value="<%= productoAEditar.price %>" class="control">
-            </div>
+        </main>
 
+<<<<<<< HEAD
             <div class="control-formulario-registro">
                 <label for="files">Suba la Imagen del Producto</label>
                 <input type="file" id="files" name="fotoProducto" class="control" placeholder="hola">
@@ -74,6 +126,9 @@
 </main>
 
 <%- include('../partials/footer.ejs')%> 
+=======
+        <%- include('../partials/footer.ejs')%>
+>>>>>>> 2c2c921838e2de4ef741d74d90680403d9215b17
 
 
 </body>
