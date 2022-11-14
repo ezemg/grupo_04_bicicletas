@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path')
 const db = require('../database/models')
+const { validationResult } = require('express-validator');
+const busboy = require('connect-busboy')
 
 
 const productsController = {
-
 
      // Index de productos - listar todos     
      listar: async (req, res) => {
@@ -17,7 +18,6 @@ const productsController = {
                     ]
                })
 
-               // console.log(productos[1].shoppings)
                res.render('products/listado', { products })
 
           } catch (error) {
@@ -54,7 +54,6 @@ const productsController = {
           try {
                let categories = await db.Categories.findAll()
 
-               // console.log(productos[1].shoppings)
                res.render('products/nuevoProducto', { categories })
 
           } catch (error) {
@@ -67,24 +66,47 @@ const productsController = {
 
      guardar: async (req, res) => {
 
-          try {
-               let productoNuevo = await db.Products.create(
-                    {
-                         id_products: Number(String(Date.now()).slice(6)),
-                         name: req.body.name,
-                         description: req.body.description,
-                         image: req.file ? req.file.filename : 'default-image.jpg',
-                         price: req.body.price,
-                         category_id: req.body.category
-                    },
-               )
-               res.redirect('/products')
+          const resultValidation = validationResult(req);
+
+
+          if (resultValidation.errors.length > 0) {
+
+               try {
+                    let categories = await db.Categories.findAll()
+
+                    res.render(
+                         'products/nuevoProducto',
+                         {
+                              categories: categories,
+                              errors: resultValidation.mapped(),
+                              oldData: req.body
+                         })
+               } catch (error) {
+                    console.log(error)
+               }
+
+          } else {
+
+               try {
+                    let productoNuevo = await db.Products.create(
+                         {
+                              id_products: Number(String(Date.now()).slice(6)),
+                              name: req.body.name,
+                              description: req.body.description,
+                              image: req.file ? req.file.filename : 'default-image.jpg',
+                              price: req.body.price,
+                              category_id: req.body.category
+                         },
+                    )
+                    res.redirect('/products')
+               } catch (error) {
+                    console.log(error)
+               }
+
           }
 
-          catch (error) {
-               console.log(error)
-          }
      },
+
 
      // Editar producto existente - Obtener formulario
      editar: async (req, res) => {
@@ -104,40 +126,64 @@ const productsController = {
      // Editar producto - Actualizar información producto
      actualizar: async (req, res) => {
 
+          const resultValidation = validationResult(req)
 
-          try {
+          if (resultValidation.errors.length > 0) {
 
-               let producto = await db.Products.findByPk(req.params.id)
+               try {
+                    let productoAEditar = await db.Products.findByPk(req.params.id);
 
-               console.log('========================================')
-               console.log(producto.image)
-               console.log('========================================')
+                    let categories = await db.Categories.findAll();
 
-               let productoNuevo = await db.Products.update(
-                    {
-                         name: req.body.name,
-                         description: req.body.description,
-                         image: req.file ? req.file.filename : producto.image,
-                         price: req.body.price,
-                         category_id: req.body.category
-                    }, {
-                    where: {
-                         id_products: req.params.id
+                    res.render('products/editarProducto',
+                         {
+                              productoAEditar,
+                              categories,
+                              errors: resultValidation.mapped(),
+                              oldData: req.body
+                         })
+               }
+
+               catch (error) {
+
+                    console.log({ error })
+               }
+
+          } else {
+
+               try {
+
+                    let producto = await db.Products.findByPk(req.params.id)
+
+
+                    let productoNuevo = await db.Products.update(
+                         {
+                              name: req.body.name,
+                              description: req.body.description,
+                              image: req.file ? req.file.filename : producto.image,
+                              price: req.body.price,
+                              category_id: req.body.category
+                         }, {
+                         where: {
+                              id_products: req.params.id
+                         }
+                    })
+
+                    let productoEditado = await db.Products.findByPk(req.params.id)
+
+
+                    if (producto && producto.image != 'default-image.jpg' && productoEditado.image != producto.image) {
+
+                         fs.unlinkSync("./public/images/productos/" + producto.image)
                     }
-               })
+                    res.redirect("/products/producto/" + req.params.id)
+               }
+               catch (error) {
+                    console.log(error)
+               }
 
-               let productoEditado = await db.Products.findByPk(req.params.id)
-
-               
-               if (producto && producto.image != 'default-image.jpg' && productoEditado.image != producto.image) {
-
-                    fs.unlinkSync("./public/images/productos/" + producto.image)
-               } 
-               res.redirect("/products/producto/" + req.params.id)
           }
-          catch (error) {
-               console.log(error)
-          }
+
      },
 
      eliminar: async (req, res) => {

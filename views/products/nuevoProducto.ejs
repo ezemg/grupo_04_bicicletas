@@ -23,38 +23,80 @@
                 <p>Nuevo Producto</p>
             </div>
 
-            <div class="formulario">
+            <div class="formulario" id="formularioCrearProducto">
+
+                <ul class="erroresCrearProducto"></ul>
+
                 <form action="nuevo-producto" method="POST" class="create-form" enctype="multipart/form-data">
 
                     <div class="control-formulario-registro">
                         <label>Nombre del Producto</label>
-                        <input type="text" name="name" class="control">
+                        <input type="text" name="name" id="inputName"
+                            value="<%= locals.oldData ? oldData.description : null %>">
+                        <% if (locals.errors && errors.name) { %>
+                            <div class="text-danger">
+                                <%= errors.name.msg %>
+                            </div>
+                            <% } %>
                     </div>
 
                     <div class="control-formulario-registro">
                         <label>Descripcion</label>
-                        <input type="text" name="description" class="control">
+                        <input type="text" name="description" id="inputDescription"
+                            value="<%= locals.oldData ? oldData.description : null %>">
+                        <% if (locals.errors && errors.description) { %>
+                            <div class="text-danger">
+                                <%= errors.description.msg %>
+                            </div>
+                            <% } %>
                     </div>
 
                     <div class="control-formulario-registro">
                         <label>Precio</label>
-                        <input type="number" name="price" class="control">
+                        <input type="number" name="price" class="control"
+                            value="<%= locals.oldData ? oldData.price : null %>">
                     </div>
 
 
                     <div class="control-formulario-registro">
                         <label>Suba la Imagen del Producto</label>
-                        <input type="file" name="fotoProducto" class="control">
+                        <input type="file" name="fotoProducto" id="inputFotoProducto" class="control">
+                        <% if (locals.errors && errors.fotoProducto) { %>
+                            <div class="text-danger">
+                                <%= errors.fotoProducto.msg %>
+                            </div>
+                            <% } %>
                     </div>
 
                     <div class="control-formulario-registro">
                         <label for="category">Categoría:</label>
                         <select name="category" id="category">
-                            <% for (let category of categories ){ %>
-                                <option value="<%= category.category_id%> ">
-                                    <%= category.name %>
-                                </option>
-                                <% } %>
+
+                            <% for( let i=0; i < categories.length; i++ ) { %>
+                                <% if (locals.oldData && categories[i].category_id==oldData.category) { %>
+
+                                    <option value="<%= categories[i].category_id%>" selected>
+                                        <%= categories[i].name %>
+                                    </option>
+
+                                    <% } else { %>
+
+                                        <option value="<%= categories[i].category_id%>">
+                                            <%= categories[i].name %>
+                                        </option>
+
+                                        <% } %>
+                                            <% } %>
+
+                                                <!-- 
+                                                <% for (let category of categories ){ %>
+
+                                                    <option value="<%= category.category_id%> ">
+                                                        <%= category.name %>
+                                                    </option>
+                                                    <% } %> -->
+
+
                         </select>
                     </div>
 
@@ -70,6 +112,8 @@
 
         <%- include('../partials/footer.ejs')%>
 
+            <script src="../../js/productValidations.js"></script>
+            <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 
 </body>
 

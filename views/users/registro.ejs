@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.gregistrooogleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/28f161943c.js" crossorigin="anonymous"></script>
-    <link  href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/normalize.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/registrologin.css">
 </head>
@@ -23,12 +23,15 @@
                 <p>CREAR CUENTA</p>
             </div>
 
-            <div class="formulario">
+            <div class="formulario" id="formularioCrear">
+
+                <ul class="erroresRegistro"></ul>
+
                 <form method="POST" action="/users/register" class="create-form" enctype="multipart/form-data">
 
                     <div class="control-formulario-registro">
                         <label>Nombre</label>
-                        <input type="text" name="nombre" class="control "
+                        <input type="text" name="nombre" id="inputNombre"
                             value="<%= locals.oldData ? oldData.nombre : null %>">
 
                         <% if (locals.errors && errors.nombre) { %>
@@ -40,7 +43,7 @@
 
                     <div class="control-formulario-registro">
                         <label>Apellido</label>
-                        <input type="text" name="apellido" class="control"
+                        <input type="text" name="apellido" id="inputApellido"
                             value="<%= locals.oldData ? oldData.apellido : null %>">
                         <% if (locals.errors && errors.apellido) { %>
                             <div class="text-danger">
@@ -52,7 +55,7 @@
 
                     <div class="control-formulario-registro">
                         <label>Dirección de correo electrónico</label>
-                        <input type="email" name="email" class="control"
+                        <input type="text" name="email" id="inputCorreo"
                             value="<%= locals.oldData ? oldData.email : null %>">
                         <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
@@ -63,7 +66,7 @@
 
                     <div class="control-formulario-registro">
                         <label>Contraseña</label>
-                        <input type="password" name="contrasena" class="control">
+                        <input type="password" name="contrasena" id="inputContrasenaRegistro">
                         <% if (locals.errors && errors.contrasena) { %>
                             <div class="text-danger">
                                 <%= errors.contrasena.msg %>
@@ -74,7 +77,7 @@
 
                     <div class="control-formulario-registro">
                         <label>Confirmar contraseña</label>
-                        <input type="password" name="confirmarContrasena" class="control">
+                        <input type="password" name="confirmarContrasena" id="inputConfirmarContrasena">
                         <% if (locals.errors && errors.confirmarContrasena) { %>
                             <div class="text-danger">
                                 <%= errors.confirmarContrasena.msg %>
@@ -83,7 +86,7 @@
                     </div>
                     <div class="control-formulario-registro">
 
-                        <input type="file" name="avatar" class="control">
+                        <input type="file" name="avatar" id="inputAvatar" class="control">
                         <% if (locals.errors && errors.avatar) { %>
                             <div class="text-danger">
                                 <%= errors.avatar.msg %>
@@ -104,6 +107,9 @@
 
 
         <%- include('../partials/footer.ejs')%>
+
+            <script src="../../js/registerValidations.js"></script>
+            <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 </body>
 
 </html>

@@ -1,23 +1,28 @@
 const path = require('path');
-const { body, check } = require('express-validator');
+const { body } = require('express-validator');
+const User = require('../models/User')
 
 const validacionesRegistroMiddleware = [
     body('nombre')
-        .notEmpty().withMessage('Tienes que escribir un nombre').bail()
-        .isLength({ min: 2 }).withMessage('El nombre debe tener al menos dos'),
+        .notEmpty()
+        .withMessage('Tienes que escribir un nombre').bail()
+        .isLength({ min: 2 })
+        .withMessage('El nombre debe tener al menos dos caracteres'),
 
     body('apellido')
         .notEmpty()
         .withMessage('Tienes que escribir un apellido')
-        .bail(),
-
-    // .matches(/^(.*[a-z].*)$/).withMessage('Password must contain at least one lowercase letter')
-    // .matches(/^(.*[A-Z].*)$/).withMessage('Password must contain at least one uppercase letter')
-    // .matches(/^(.*\d.*)$/).withMessage('Password must contain at least one digit'),
+        .bail()
+        .isLength({ min: 2 })
+        .withMessage('El apellido debe tener al menos dos caracteres'),
 
     body('email')
-        .notEmpty().withMessage('Tienes que escribir un email').bail()
-        .isEmail().withMessage('Debes escribir un correo valido'),
+        .notEmpty()
+        .withMessage('Tienes que escribir un email').bail()
+        .isEmail()
+        .withMessage('Debes escribir un correo valido'),
+
+    // La validacion de existencia de mail en DB esta en el controller
 
     body('contrasena')
         .notEmpty()
@@ -26,7 +31,8 @@ const validacionesRegistroMiddleware = [
         .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
         .withMessage('La contraseña debe tener al menos una letra minúscula, una letra mayúscula, un número y un caracter especial')
         .bail()
-        .isLength({ min: 8, max: 32 }).withMessage('La contraseña debe tener un minimo de 8 caracteres y un maximo de 32 caracteres'),
+        .isLength({ min: 8, max: 32 })
+        .withMessage('La contraseña debe tener un minimo de 8 caracteres y un maximo de 32 caracteres'),
 
 
     body('confirmarContrasena')
@@ -42,6 +48,10 @@ const validacionesRegistroMiddleware = [
     body('avatar').custom((value, { req }) => {
         let file = req.file;
         let aceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+
+        console.log("===========================")
+        console.log(file)
+        console.log("===========================")
 
         if (!file) {
             throw new Error('Tienes que subir una imagen');
