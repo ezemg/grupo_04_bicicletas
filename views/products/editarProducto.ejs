@@ -23,19 +23,32 @@
                 <p>Editar Producto</p>
             </div>
 
-            <div class="formulario">
+            <div class="formulario" id="formularioEditarProducto">
+
+                <ul class="erroresCrearProducto"></ul>
+
                 <form action="/products/edit/<%= productoAEditar.id_products %>?_method=PUT" method="POST"
                     class="create-form" enctype="multipart/form-data">
 
                     <div class="control-formulario-registro">
                         <label for="name">Nombre del Producto</label>
                         <input type="text" id="name" name="name" value="<%= productoAEditar.name %>" class="control">
+                        <% if (locals.errors && errors.name) { %>
+                            <div class="text-danger">
+                                <%= errors.name.msg %>
+                            </div>
+                            <% } %>
                     </div>
 
                     <div class="control-formulario-registro">
                         <label for="description">Descripcion</label>
                         <input type="text" id="description" name="description"
                             value="<%= productoAEditar.description %>" class="control">
+                        <% if (locals.errors && errors.description) { %>
+                            <div class="text-danger">
+                                <%= errors.description.msg %>
+                            </div>
+                            <% } %>
                     </div>
 
                     <div class="control-formulario-registro">
@@ -81,6 +94,8 @@
 
         <%- include('../partials/footer.ejs')%>
 
+            <script src="../../js/productsEditValidations.js"></script>
+            <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 
 </body>
 

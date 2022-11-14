@@ -26,22 +26,31 @@
                 <p>INGRESAR</p>
             </div>
 
-            <div class="formulario">
+            <div class="formulario" id="formularioLogin">
+                <ul class="erroresLogin"></ul>
                 <form action="/users/login" method="POST" class="create-form">
 
                     <div class="control-formulario-registro">
                         <label>Correo Electrónico</label>
-                        <input type="text" name="email" class="control">
+                        <input type="text" name="email" id="inputEmail">
+
                         <% if (locals.errors && errors.email){ %>
                             <div class="text-danger">
                                 <%= errors.email.msg %>
                             </div>
                             <%}%>
+
+
                     </div>
 
                     <div class="control-formulario-registro">
                         <label>Contraseña</label>
-                        <input type="password" name="contrasena" class="control">
+                        <input type="password" name="contrasena" id="inputContrasena">
+                        <% if (locals.errors && errors.contrasena){ %>
+                            <div class="text-danger">
+                                <%= errors.contrasena.msg %>
+                            </div>
+                            <%}%>
                     </div>
 
                     <div class="control-formulario-registro">
@@ -60,6 +69,9 @@
         </main>
 
         <%- include('../partials/footer.ejs')%>
+
+            <script src="../../js/loginValidations.js"></script>
+            <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 </body>
 
 </html>

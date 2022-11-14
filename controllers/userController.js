@@ -16,6 +16,15 @@ const userController = {
     // Proceso de formulario de login 
     loginProcess: async (req, res) => {
 
+        const resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0) {
+            return res.render('users/login', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
+
         try {
 
             let userToLogin = await db.Users.findOne({
@@ -35,7 +44,7 @@ const userController = {
 
                     if (req.session.userLogged.id_user_category == 2) {
                         req.session.admin = userToLogin
-                        
+
                     } else if (req.session.userLogged.id_user_category == 1) {
                         req.session.guest = userToLogin
                     }
@@ -46,22 +55,25 @@ const userController = {
                     return res.redirect('/users/profile')
                 }
 
-                return res.render('users/login', {
-                    errors: {
-                        email: {
-                            msg: "las credenciales son invalidas"
+                return res.render('users/login',
+                    {
+                        errors: {
+                            email: {
+                                msg: "las credenciales son invalidas"
+                            }
                         }
-                    }
-                })
+                    })
             }
 
-            return res.render('users/login', {
-                errors: {
-                    email: {
-                        msg: "El email no se encuentra registrado"
-                    }
-                }
-            })
+            return res.render('users/login',
+                // {
+                //     errors: {
+                //         email: {
+                //             msg: "El email no se encuentra registrado"
+                //         }
+                //     }
+                // }
+            )
 
         } catch (error) {
             console.log(error)
@@ -92,13 +104,14 @@ const userController = {
             })
 
             if (usuarioInDB) {
-                return res.render('users/registro', {
+                res.render('users/registro', {
                     errors: {
                         email: { msg: 'Este email ya esta registrado' }
                     },
                     oldData: req.body
                 }
                 )
+
             }
 
             let userToCreate = await db.Users.create(

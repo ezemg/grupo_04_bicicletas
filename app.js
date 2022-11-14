@@ -6,6 +6,7 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const cookies = require('cookie-parser');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser')
 
 const app = express();
 
@@ -24,6 +25,8 @@ app.use(Session({
   saveUninitialized: false,
 }));
 app.use(cookies());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(userLoggedMiddleware);
 
 // view engine setup
