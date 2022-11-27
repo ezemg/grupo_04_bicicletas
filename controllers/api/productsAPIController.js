@@ -18,7 +18,32 @@ const productsAPIController = {
                 }
                 res.json(respuesta)
             })
-    }
+    },
+    'detalle':  (req, res) => {
+
+        
+              db.Products.findByPk(
+                  req.params.id,
+                  {
+                       include: [
+                            { association: 'category' },
+                            { association: 'shoppings' }
+                       ]
+                  }
+             )  
+             .then(product => {
+                let respuesta = {
+                    meta: {
+                        status: 200,
+                        total: product.length,
+                        url: 'api/product'
+                    },
+                    data: product
+                }
+                res.json(respuesta)
+            })        
+
+   }
 }
 
 module.exports = productsAPIController
