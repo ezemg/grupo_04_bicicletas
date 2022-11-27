@@ -35,4 +35,6 @@
     - Implementar formulario de modificación de usuarios con opción de modificar clase de usuario para administradores.
 
     - Opcion de eliminar usuario
+
+    - Cambiar validaciones multer de extname minetype
 )

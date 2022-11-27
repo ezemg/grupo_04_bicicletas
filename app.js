@@ -6,12 +6,14 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const cookies = require('cookie-parser');
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const cors = require('cors')
 
 const app = express();
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
+app.use(cors())
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -33,16 +35,22 @@ app.use(userLoggedMiddleware);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+
+const apiProductsRouter = require('./routes/api/products')
 
 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// la linea de app.use(products) la agregue yo
 app.use('/products', productsRouter)
+
+// API
+app.use('/api/products', apiProductsRouter)
 
 //  catch 404 and forward to error handler
 app.use(function (req, res, next) {
