@@ -5,19 +5,78 @@ const { Op } = require("sequelize");
 const moment = require('moment');
 
 const usersAPIController = {
-    'list': (req, res) => {
-        db.Users.findAll()
-            .then(users => {
-                let respuesta = {
-                    meta: {
-                        status: 200,
-                        total: users.length,
-                        url: 'api/users'
-                    },
-                    data: users
-                }
-                res.json(respuesta)
+    'list': async (req, res) => {
+
+        try {
+            let usuarios = await db.Users.findAll({
+                include: [
+                    { association: 'userCategory' },
+
+                ]
             })
+
+            let categoriasUsuarios = await db.UserCategories.findAll({
+                include: [
+                    { association: 'user' },
+                ]
+            })
+
+            let respuesta = {
+
+                status: 200,
+                count: usuarios.length,
+                url: '/api/usuarios',
+                users: usuarios.map(e => {
+                    return {
+                        id: e.id,
+                        first_name: e.name,
+                        last_name: e.last_name,
+                        email: e.email,
+                        avatar: e.avatar,
+                        category: e.userCategory,
+                        detail: `/api/users/${e.id}`
+                    }
+                })
+            }
+
+            res.json({ respuesta })
+
+        } catch (error) {
+            console.log({ error })
+        }
+    },
+
+    'detalle': async (req, res) => {
+
+        try {
+            let usuario = await db.Users.findByPk(
+                req.params.id,
+                {
+                    include: [
+                        { association: 'userCategory' },
+                    ]
+                }
+            )
+
+            let respuesta = {
+                status: 200,
+                data: {
+                    id: usuario.id,
+                    first_name: usuario.name,
+                    last_name: usuario.last_name,
+                    email: usuario.email,
+                    category: usuario.userCategory
+                },
+                url: `/api/users/${usuario.id}`,
+                image_url: `/images/users/${usuario.avatar}`
+            }
+
+            res.json({ respuesta })
+
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 }
 
