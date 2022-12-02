@@ -23,9 +23,14 @@ const productsAPIController = {
 
             let respuesta = {
 
+
                 status: 200,
                 count: products.length,
-                countByCategory: { //Ver como iterar sobre este array y devolver un objeto
+                countByCategory:  //Ver como iterar sobre este array y devolver un objeto
+                // categories.map(e => {
+                //     return { 'hola': 'hola mundo' }
+                // }),
+                {
                     'Bicicletas': categories[0].Product.length,
                     'Accesorios': categories[1].Product.length,
                     'Indumentaria': categories[2].Product.length
@@ -49,8 +54,36 @@ const productsAPIController = {
         } catch (error) {
             console.log({ error })
         }
+    },
+
+    'categoriesList': async (req, res) => {
+
+        try {
 
 
+            let categories = await db.Categories.findAll({
+                include: [
+                    { association: 'Product' },
+                ]
+            })
+
+            let respuesta = {
+                status: 200,
+                count: categories.length,
+                url: '/api/products/categories',
+
+                categories: categories.map(e => {
+                    return {
+                        id: e.category_id,
+                        name: e.name,
+                        products: e.Product.length
+                    }
+                })
+            }
+            res.json({ respuesta })
+        } catch (error) {
+            console.log({ error })
+        }
     },
 
     'detalle': async (req, res) => {

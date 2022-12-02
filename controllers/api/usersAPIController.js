@@ -33,7 +33,6 @@ const usersAPIController = {
                         last_name: e.last_name,
                         email: e.email,
                         avatar: e.avatar,
-                        category: e.userCategory,
                         detail: `/api/users/${e.id}`
                     }
                 })
@@ -65,7 +64,6 @@ const usersAPIController = {
                     first_name: usuario.name,
                     last_name: usuario.last_name,
                     email: usuario.email,
-                    category: usuario.userCategory
                 },
                 url: `/api/users/${usuario.id}`,
                 image_url: `/images/users/${usuario.avatar}`

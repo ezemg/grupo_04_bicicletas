@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             primaryKey: true,
             allowNull: false,
-
+            autoIncrement: true
         },
 
         name: {

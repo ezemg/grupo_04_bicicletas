@@ -5,6 +5,8 @@ const { validationResult } = require('express-validator');
 const busboy = require('connect-busboy')
 
 
+
+
 const productsController = {
 
      // Index de productos - listar todos     
@@ -90,7 +92,7 @@ const productsController = {
                try {
                     let productoNuevo = await db.Products.create(
                          {
-                              id_products: Number(String(Date.now()).slice(6)),
+                              // id_products: Number(String(Date.now()).slice(6)),
                               name: req.body.name,
                               description: req.body.description,
                               image: req.file ? req.file.filename : 'default-image.jpg',

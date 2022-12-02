@@ -1,8 +1,16 @@
 const fs = require('fs')
+const db = require('../database/models')
 
-console.log(fs)
 
-// fs.read('public/images/imagenhome.jpg', 'utf-8', (err, data) => {
-//     if (err) throw err;
-//     console.log(data);
-// });
+
+
+let idGenerator = async () => {
+    try {
+        let allProducts = await db.Products.findAll()
+        let lastProduct = await allProducts.pop()
+        return lastProduct.dataValues.id_products + 1
+    } catch (error) {
+        console.log(error)
+    }
+}
+
