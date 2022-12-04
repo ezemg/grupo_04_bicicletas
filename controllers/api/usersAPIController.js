@@ -38,7 +38,7 @@ const usersAPIController = {
                 })
             }
 
-            res.json({ respuesta })
+            res.json(respuesta)
 
         } catch (error) {
             console.log({ error })
@@ -69,7 +69,7 @@ const usersAPIController = {
                 image_url: `/images/users/${usuario.avatar}`
             }
 
-            res.json({ respuesta })
+            res.json(respuesta)
 
         } catch (error) {
             console.log(error)

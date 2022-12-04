@@ -49,7 +49,7 @@ const productsAPIController = {
                 }),
             }
 
-            res.json({ respuesta })
+            res.json(respuesta)
 
         } catch (error) {
             console.log({ error })
@@ -59,8 +59,6 @@ const productsAPIController = {
     'categoriesList': async (req, res) => {
 
         try {
-
-
             let categories = await db.Categories.findAll({
                 include: [
                     { association: 'Product' },
@@ -80,7 +78,7 @@ const productsAPIController = {
                     }
                 })
             }
-            res.json({ respuesta })
+            res.json(respuesta)
         } catch (error) {
             console.log({ error })
         }
@@ -113,7 +111,7 @@ const productsAPIController = {
                 image_url: `/images/productos/${product.image}`
             }
 
-            res.json({ respuesta })
+            res.json(respuesta)
         } catch (error) {
             console.log(error)
         }
