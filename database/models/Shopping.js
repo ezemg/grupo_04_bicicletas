@@ -1,61 +1,56 @@
 module.exports = (sequelize, dataTypes) => {
+  let alias = "Shoppings";
 
-    let alias = 'Shoppings';
+  let cols = {
+    id_shopping: {
+      type: dataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
 
-    let cols = {
+    price: {
+      type: dataTypes.FLOAT,
+    },
 
-        id_shopping: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false,
+    price: {
+      type: dataTypes.FLOAT,
+    },
 
-        },
+    id_user: {
+      type: dataTypes.INTEGER,
+      allowNull: false,
+    },
 
-        name: {
-            type: dataTypes.STRING
-        },
+    // Revisar longitud de descripcion en DB y luego pasar a modelos. 255 es muy poco
+  };
 
-        price: {
-            type: dataTypes.FLOAT
-        },
+  let config = {
+    tableName: "shopping",
+    timestamps: false,
+  };
 
-        amount: {
-            type: dataTypes.INTEGER
-        },
+  const Shopping = sequelize.define(alias, cols, config);
 
-        id_user: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-        }
+  Shopping.associate = models => {
+    Shopping.belongsTo(models.Users, {
+      as: "User",
+      foreignKey: "id_user",
+    });
 
-        // Revisar longitud de descripcion en DB y luego pasar a modelos. 255 es muy poco
-    }
+    Shopping.belongsTo(models.ShoppingStatus, {
+      as: "ShoppingStatus",
+      foreignKey: "shopping_status_id",
+    });
 
-    let config = {
-        tableName: 'shopping',
-        timestamps: false
-    }
+    Shopping.belongsToMany(models.Products, {
+      as: "Products",
+      through: "products_shopping",
+      foreignKey: "id_shopping",
+      otherKey: "id_products",
+      timestamps: false,
+    });
+  };
 
-
-    const Shopping = sequelize.define(alias, cols, config);
-
-    Shopping.associate = (models) => {
-
-        Shopping.belongsTo(models.Users, {
-            as: 'User',
-            foreignKey: 'id_user'
-        })
-
-        Shopping.belongsToMany(models.Products, {
-            as: 'Products',
-            through: 'products_shopping',
-            foreignKey: 'id_shopping',
-            otherKey: 'id_products',
-            timestamps: false
-        })
-    }
-
-    return Shopping
-
-}
+  return Shopping;
+};
